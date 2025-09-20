@@ -60,7 +60,7 @@ Go China Advisors 是一个基于 Next.js 14.2.3 + React 18.3.1 + TypeScript 5.4
 ## 📁 项目结构
 
 ```
-gochina-advisors/
+Go-China-Advisors/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── (main)/            # 主要路由组
