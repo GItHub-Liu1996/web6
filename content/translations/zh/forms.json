@@ -1,0 +1,127 @@
+{
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "获取专业的咨询服务",
+    "fields": {
+      "name": {
+        "label": "姓名",
+        "placeholder": "请输入您的姓名",
+        "required": "姓名是必填项"
+      },
+      "email": {
+        "label": "邮箱",
+        "placeholder": "请输入您的邮箱地址",
+        "required": "邮箱是必填项",
+        "invalid": "请输入有效的邮箱地址"
+      },
+      "company": {
+        "label": "公司名称",
+        "placeholder": "请输入您的公司名称"
+      },
+      "phone": {
+        "label": "电话",
+        "placeholder": "请输入您的电话号码"
+      },
+      "country": {
+        "label": "国家/地区",
+        "placeholder": "请选择您的国家/地区"
+      },
+      "service": {
+        "label": "感兴趣的服务",
+        "placeholder": "请选择您感兴趣的服务",
+        "options": {
+          "startup": "企业落地启动方案",
+          "operation": "企业持续运营支持",
+          "legalEntity": "主体资格",
+          "bankAccount": "银行账户开设",
+          "crossBorder": "跨境资金流动",
+          "taxCompliance": "税务合规",
+          "hrVisa": "人员签证",
+          "premises": "经营场所",
+          "industryLicensing": "行业准入",
+          "financialOutsourcing": "财税托管",
+          "intellectualProperty": "知识产权",
+          "digitalInfrastructure": "数字基建",
+          "policySubsidy": "政策咨询",
+          "other": "其他"
+        }
+      },
+      "subject": {
+        "label": "咨询主题",
+        "placeholder": "请简要描述您的咨询主题"
+      },
+      "message": {
+        "label": "详细需求",
+        "placeholder": "请详细描述您的需求和问题",
+        "required": "详细需求是必填项"
+      },
+      "budget": {
+        "label": "预算范围",
+        "placeholder": "请选择您的预算范围",
+        "options": {
+          "under10k": "10万人民币以下",
+          "10k-50k": "10-50万人民币",
+          "50k-100k": "50-100万人民币",
+          "100k-500k": "100-500万人民币",
+          "over500k": "500万人民币以上",
+          "discuss": "需要进一步讨论"
+        }
+      },
+      "timeline": {
+        "label": "项目时间表",
+        "placeholder": "请选择您希望的项目完成时间",
+        "options": {
+          "asap": "尽快开始",
+          "1month": "1个月内",
+          "3months": "3个月内",
+          "6months": "6个月内",
+          "1year": "1年内",
+          "flexible": "时间灵活"
+        }
+      }
+    },
+    "submit": "提交咨询",
+    "submitting": "提交中...",
+    "success": "咨询提交成功！我们会尽快与您联系。",
+    "error": "提交失败，请稍后重试。"
+  },
+  "subscribe": {
+    "title": "订阅我们的资讯",
+    "subtitle": "获取最新的政策解读和市场动态",
+    "fields": {
+      "email": {
+        "label": "邮箱地址",
+        "placeholder": "请输入您的邮箱地址",
+        "required": "邮箱是必填项",
+        "invalid": "请输入有效的邮箱地址"
+      },
+      "name": {
+        "label": "姓名",
+        "placeholder": "请输入您的姓名"
+      },
+      "interests": {
+        "label": "感兴趣的领域",
+        "placeholder": "请选择您感兴趣的领域",
+        "options": {
+          "policy": "政策解读",
+          "market": "市场动态",
+          "caseStudies": "成功案例",
+          "industry": "行业资讯",
+          "all": "全部内容"
+        }
+      }
+    },
+    "submit": "立即订阅",
+    "submitting": "订阅中...",
+    "success": "订阅成功！感谢您的关注。",
+    "error": "订阅失败，请稍后重试。"
+  },
+  "validation": {
+    "required": "此字段是必填项",
+    "email": "请输入有效的邮箱地址",
+    "phone": "请输入有效的电话号码",
+    "minLength": "至少需要{min}个字符",
+    "maxLength": "最多{max}个字符",
+    "pattern": "格式不正确"
+  }
+}

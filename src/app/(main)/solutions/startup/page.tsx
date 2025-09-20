@@ -1,34 +1,27 @@
 /**
  * 企业落地启动方案页面
  * 
- * 最基础结构，等待详细设计
+ * 核心目标：转化寻求从0到1在中国设立公司的新客户
  * 
- * @example
- * ```tsx
- * <StartupSolutionPage />
- * ```
+ * 内容模块：
+ * - 方案介绍
+ * - 服务清单
+ * - 工作流程图
+ * - 相关成功案例
+ * - 上下文联系表单
+ * 
+ * 组件构成：
+ * - SolutionPackageCard
+ * - CaseStudyCard
+ * - ContactForm
+ * - WorkflowDiagram
  */
 
-import React from 'react';
-
-export default function StartupSolutionPage() {
+export default function StartupPage() {
+  // TODO: 实现企业落地启动方案页面
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            企业落地启动方案
-          </h1>
-          <p className="text-xl text-gray-600">
-            为外国企业在中国设立公司提供一站式专业服务
-          </p>
-        </div>
-        
-        {/* 页面内容占位符 */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-500">页面内容待开发...</p>
-        </div>
-      </div>
+    <div>
+      {/* TODO: 页面内容实现 */}
     </div>
   );
 }

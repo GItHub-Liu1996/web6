@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GoChinaAdvisors (仮) - 中国公司注册专业服务",
+  title: "Go China Advisors (仮) - 中国公司注册专业服务",
   description: "为外国用户在中国注册和运营公司提供一站式专业服务",
   keywords: "中国公司注册,外国投资,企业服务,商务咨询",
 };

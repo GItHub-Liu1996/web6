@@ -1,0 +1,105 @@
+{
+  "site": {
+    "name": "Go China Advisors",
+    "description": "为中国市场提供专业的外商投资服务",
+    "tagline": "从公司注册到持续运营，我们为外国企业提供一站式专业解决方案"
+  },
+  "navigation": {
+    "home": "首页",
+    "solutions": "解决方案",
+    "startup": "企业落地启动方案",
+    "operation": "企业持续运营支持",
+    "services": "服务",
+    "caseStudies": "成功案例",
+    "blog": "资源中心",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "pricing": "服务定价"
+  },
+  "buttons": {
+    "learnMore": "了解更多",
+    "getStarted": "开始咨询",
+    "contactUs": "联系我们",
+    "readMore": "阅读更多",
+    "viewAll": "查看全部",
+    "submit": "提交",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序",
+    "reset": "重置",
+    "apply": "应用",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "finish": "完成"
+  },
+  "forms": {
+    "name": "姓名",
+    "email": "邮箱",
+    "phone": "电话",
+    "company": "公司名称",
+    "message": "消息",
+    "subject": "主题",
+    "required": "必填",
+    "optional": "可选",
+    "placeholder": {
+      "name": "请输入您的姓名",
+      "email": "请输入您的邮箱地址",
+      "phone": "请输入您的电话号码",
+      "company": "请输入您的公司名称",
+      "message": "请输入您的消息",
+      "subject": "请输入咨询主题"
+    },
+    "validation": {
+      "required": "此字段为必填项",
+      "email": "请输入有效的邮箱地址",
+      "phone": "请输入有效的电话号码",
+      "minLength": "至少需要{min}个字符",
+      "maxLength": "不能超过{max}个字符"
+    }
+  },
+  "messages": {
+    "success": {
+      "contactSubmitted": "联系表单提交成功",
+      "subscribed": "订阅成功",
+      "saved": "保存成功",
+      "updated": "更新成功",
+      "deleted": "删除成功"
+    },
+    "error": {
+      "general": "发生错误，请稍后重试",
+      "network": "网络错误，请检查网络连接",
+      "validation": "请检查输入信息",
+      "server": "服务器错误，请稍后重试",
+      "notFound": "未找到请求的内容",
+      "unauthorized": "未授权访问",
+      "forbidden": "禁止访问"
+    },
+    "loading": {
+      "general": "加载中...",
+      "submitting": "提交中...",
+      "saving": "保存中...",
+      "deleting": "删除中...",
+      "searching": "搜索中..."
+    }
+  },
+  "meta": {
+    "keywords": "外商投资, 公司注册, 银行开户, 税务合规, 跨境资金, 专业服务",
+    "description": "Go China Advisors 为外国企业在中国市场提供专业的外商投资服务，包括公司注册、银行开户、税务合规、跨境资金流动等一站式解决方案。"
+  },
+  "footer": {
+    "company": "公司信息",
+    "services": "服务项目",
+    "resources": "资源中心",
+    "legal": "法律信息",
+    "social": "社交媒体",
+    "newsletter": "邮件订阅",
+    "copyright": "版权所有",
+    "allRightsReserved": "保留所有权利"
+  }
+}

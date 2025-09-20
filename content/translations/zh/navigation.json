@@ -1,0 +1,62 @@
+{
+  "main": {
+    "home": "首页",
+    "solutions": "解决方案",
+    "caseStudies": "成功案例",
+    "blog": "资源中心",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "pricing": "服务定价"
+  },
+  "solutions": {
+    "title": "解决方案",
+    "startup": "企业落地启动方案",
+    "operation": "企业持续运营支持",
+    "allServices": "全部服务概览"
+  },
+  "industries": {
+    "title": "行业方案",
+    "technology": "科技与软件",
+    "ecommerce": "电子商务与零售",
+    "professional": "专业服务业",
+    "manufacturing": "高端制造业",
+    "medical": "医疗器械",
+    "allIndustries": "查看所有行业方案"
+  },
+  "services": {
+    "title": "服务",
+    "legalEntity": "主体资格",
+    "bankAccount": "银行账户开设",
+    "crossBorder": "跨境资金流动",
+    "taxCompliance": "税务合规",
+    "hrVisa": "人员签证",
+    "premises": "经营场所",
+    "industryLicensing": "行业准入",
+    "financialOutsourcing": "财税托管",
+    "intellectualProperty": "知识产权",
+    "digitalInfrastructure": "数字基建",
+    "policySubsidy": "政策咨询"
+  },
+  "features": {
+    "techStartup": "🚀 科技创业成功案例",
+    "freeConsultation": "💬 获取免费咨询"
+  },
+  "actions": {
+    "learnMore": "了解更多",
+    "getStarted": "立即开始",
+    "contactUs": "联系我们",
+    "viewAll": "查看全部",
+    "readMore": "阅读更多",
+    "download": "下载",
+    "subscribe": "订阅",
+    "search": "搜索"
+  },
+  "breadcrumbs": {
+    "home": "首页",
+    "solutions": "解决方案",
+    "services": "服务",
+    "caseStudies": "成功案例",
+    "blog": "资源中心",
+    "industries": "行业方案"
+  }
+}

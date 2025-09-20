@@ -1,0 +1,127 @@
+{
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get Professional Consulting Services",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Please enter your name",
+        "required": "Name is required"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Please enter your email address",
+        "required": "Email is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "company": {
+        "label": "Company Name",
+        "placeholder": "Please enter your company name"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Please enter your phone number"
+      },
+      "country": {
+        "label": "Country/Region",
+        "placeholder": "Please select your country/region"
+      },
+      "service": {
+        "label": "Service of Interest",
+        "placeholder": "Please select the service you're interested in",
+        "options": {
+          "startup": "Business Setup Solutions",
+          "operation": "Ongoing Operational Support",
+          "legalEntity": "Legal Entity Setup",
+          "bankAccount": "Bank Account Opening",
+          "crossBorder": "Cross-border Funds Flow",
+          "taxCompliance": "Tax Compliance",
+          "hrVisa": "HR & Visa Services",
+          "premises": "Premises & Property",
+          "industryLicensing": "Industry Licensing",
+          "financialOutsourcing": "Financial Outsourcing",
+          "intellectualProperty": "Intellectual Property",
+          "digitalInfrastructure": "Digital Infrastructure",
+          "policySubsidy": "Policy & Subsidy",
+          "other": "Other"
+        }
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Please briefly describe your inquiry subject"
+      },
+      "message": {
+        "label": "Detailed Requirements",
+        "placeholder": "Please describe your requirements and questions in detail",
+        "required": "Detailed requirements are required"
+      },
+      "budget": {
+        "label": "Budget Range",
+        "placeholder": "Please select your budget range",
+        "options": {
+          "under10k": "Under 100,000 RMB",
+          "10k-50k": "100,000 - 500,000 RMB",
+          "50k-100k": "500,000 - 1,000,000 RMB",
+          "100k-500k": "1,000,000 - 5,000,000 RMB",
+          "over500k": "Over 5,000,000 RMB",
+          "discuss": "Need further discussion"
+        }
+      },
+      "timeline": {
+        "label": "Project Timeline",
+        "placeholder": "Please select your desired project completion time",
+        "options": {
+          "asap": "Start as soon as possible",
+          "1month": "Within 1 month",
+          "3months": "Within 3 months",
+          "6months": "Within 6 months",
+          "1year": "Within 1 year",
+          "flexible": "Flexible timing"
+        }
+      }
+    },
+    "submit": "Submit Inquiry",
+    "submitting": "Submitting...",
+    "success": "Inquiry submitted successfully! We will contact you soon.",
+    "error": "Submission failed, please try again later."
+  },
+  "subscribe": {
+    "title": "Subscribe to Our Newsletter",
+    "subtitle": "Get the latest policy insights and market updates",
+    "fields": {
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Please enter your email address",
+        "required": "Email is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Please enter your name"
+      },
+      "interests": {
+        "label": "Areas of Interest",
+        "placeholder": "Please select your areas of interest",
+        "options": {
+          "policy": "Policy Insights",
+          "market": "Market Updates",
+          "caseStudies": "Success Cases",
+          "industry": "Industry News",
+          "all": "All Content"
+        }
+      }
+    },
+    "submit": "Subscribe Now",
+    "submitting": "Subscribing...",
+    "success": "Subscription successful! Thank you for your interest.",
+    "error": "Subscription failed, please try again later."
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "At least {min} characters required",
+    "maxLength": "Maximum {max} characters allowed",
+    "pattern": "Invalid format"
+  }
+}

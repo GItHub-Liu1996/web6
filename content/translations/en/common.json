@@ -1,0 +1,105 @@
+{
+  "site": {
+    "name": "Go China Advisors",
+    "description": "Professional foreign investment services for the Chinese market",
+    "tagline": "From company registration to ongoing operations, we provide one-stop professional solutions for foreign enterprises"
+  },
+  "navigation": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "startup": "Business Setup Solutions",
+    "operation": "Ongoing Operational Support",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "blog": "Resources",
+    "about": "About Us",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "reset": "Reset",
+    "apply": "Apply",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "finish": "Finish"
+  },
+  "forms": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "company": "Company",
+    "message": "Message",
+    "subject": "Subject",
+    "required": "Required",
+    "optional": "Optional",
+    "placeholder": {
+      "name": "Enter your name",
+      "email": "Enter your email address",
+      "phone": "Enter your phone number",
+      "company": "Enter your company name",
+      "message": "Enter your message",
+      "subject": "Enter inquiry subject"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "phone": "Please enter a valid phone number",
+      "minLength": "At least {min} characters required",
+      "maxLength": "Cannot exceed {max} characters"
+    }
+  },
+  "messages": {
+    "success": {
+      "contactSubmitted": "Contact form submitted successfully",
+      "subscribed": "Successfully subscribed",
+      "saved": "Saved successfully",
+      "updated": "Updated successfully",
+      "deleted": "Deleted successfully"
+    },
+    "error": {
+      "general": "An error occurred, please try again later",
+      "network": "Network error, please check your connection",
+      "validation": "Please check your input",
+      "server": "Server error, please try again later",
+      "notFound": "Requested content not found",
+      "unauthorized": "Unauthorized access",
+      "forbidden": "Access forbidden"
+    },
+    "loading": {
+      "general": "Loading...",
+      "submitting": "Submitting...",
+      "saving": "Saving...",
+      "deleting": "Deleting...",
+      "searching": "Searching..."
+    }
+  },
+  "meta": {
+    "keywords": "foreign investment, company registration, bank account opening, tax compliance, cross-border funds, professional services",
+    "description": "Go China Advisors provides professional foreign investment services for foreign enterprises in the Chinese market, including company registration, bank account opening, tax compliance, cross-border fund flows and other one-stop solutions."
+  },
+  "footer": {
+    "company": "Company Info",
+    "services": "Services",
+    "resources": "Resources",
+    "legal": "Legal",
+    "social": "Social Media",
+    "newsletter": "Newsletter",
+    "copyright": "Copyright",
+    "allRightsReserved": "All Rights Reserved"
+  }
+}

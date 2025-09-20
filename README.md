@@ -1,4 +1,4 @@
-# GoChinaAdvisors (仮)
+# Go China Advisors
 
 [![GitHub](https://img.shields.io/badge/GitHub-web6-blue?style=flat-square&logo=github)](https://github.com/GItHub-Liu1996/web6)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
@@ -13,7 +13,7 @@
 
 ## 🚀 项目概述
 
-GoChinaAdvisors (仮) 是一个基于 Next.js 15 + TypeScript + Tailwind CSS 构建的现代化权威内容与业务平台。我们专注于为外国用户在中国注册和运营公司提供一站式专业服务。
+Go China Advisors 是一个基于 Next.js 14.2.3 + React 18.3.1 + TypeScript 5.4.5 + Tailwind CSS 3.4.3 构建的现代化权威内容与业务平台。我们专注于为外国用户在中国注册和运营公司提供一站式专业服务。
 
 ### 🎯 核心设计哲学
 
@@ -45,9 +45,11 @@ GoChinaAdvisors (仮) 是一个基于 Next.js 15 + TypeScript + Tailwind CSS 构
 
 ## 🛠️ 技术栈
 
-- **框架**：Next.js 15 (App Router)
-- **语言**：TypeScript 5
-- **样式**：Tailwind CSS 4
+- **框架**：Next.js 14.2.3 (App Router)
+- **语言**：TypeScript 5.4.5
+- **样式**：Tailwind CSS 3.4.3
+- **React**：18.3.1
+- **Storybook**：9.1.7
 - **字体**：Geist Sans & Geist Mono
 - **国际化**：next-intl
 - **内容管理**：MDX + gray-matter
@@ -183,7 +185,7 @@ npm run test:watch
 
 ### Tailwind CSS
 
-项目使用 Tailwind CSS 4.0，配置文件位于 `postcss.config.mjs`。
+项目使用 Tailwind CSS 3.4.3，配置文件位于 `postcss.config.mjs`。
 
 ### TypeScript
 

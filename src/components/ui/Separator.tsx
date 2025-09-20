@@ -1,50 +1,31 @@
-/**
- * 分割线组件
- * 
- * 用于分隔内容区域的简单分割线
- * 
- * @example
- * ```tsx
- * <Separator orientation="horizontal" />
- * <Separator orientation="vertical" />
- * ```
- */
+"use client"
 
-import React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react"
+import * as SeparatorPrimitive from "@radix-ui/react-separator"
 
-interface SeparatorProps {
-  /**
-   * 分割线方向
-   * @default 'horizontal'
-   */
-  orientation?: 'horizontal' | 'vertical';
-  
-  /**
-   * 自定义CSS类名
-   */
-  className?: string;
-}
+import { cn } from "@/lib/utils"
 
-export const Separator: React.FC<SeparatorProps> = ({ 
-  orientation = 'horizontal',
-  className 
-}) => {
-  const baseClasses = 'bg-gray-200';
-  
-  const orientationClasses = {
-    horizontal: 'h-px w-full',
-    vertical: 'w-px h-full',
-  };
-
-  return (
-    <div
+const Separator = React.forwardRef<
+  React.ElementRef<typeof SeparatorPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+>(
+  (
+    { className, orientation = "horizontal", decorative = true, ...props },
+    ref
+  ) => (
+    <SeparatorPrimitive.Root
+      ref={ref}
+      decorative={decorative}
+      orientation={orientation}
       className={cn(
-        baseClasses,
-        orientationClasses[orientation],
+        "shrink-0 bg-border",
+        orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
         className
       )}
-      role="separator"
+      {...props}
     />
-  );
-};
+  )
+)
+Separator.displayName = SeparatorPrimitive.Root.displayName
+
+export { Separator }

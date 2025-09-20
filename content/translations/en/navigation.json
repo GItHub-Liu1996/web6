@@ -1,0 +1,62 @@
+{
+  "main": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "caseStudies": "Case Studies",
+    "blog": "Resources",
+    "about": "About Us",
+    "contact": "Contact",
+    "pricing": "Pricing"
+  },
+  "solutions": {
+    "title": "Solutions",
+    "startup": "Business Setup Solutions",
+    "operation": "Ongoing Operational Support",
+    "allServices": "View All Services"
+  },
+  "industries": {
+    "title": "Industry Solutions",
+    "technology": "Technology & Software",
+    "ecommerce": "E-commerce & Retail",
+    "professional": "Professional Services",
+    "manufacturing": "Advanced Manufacturing",
+    "medical": "Medical Devices",
+    "allIndustries": "View All Industry Solutions"
+  },
+  "services": {
+    "title": "Services",
+    "legalEntity": "Legal Entity Setup",
+    "bankAccount": "Bank Account Opening",
+    "crossBorder": "Cross-border Funds Flow",
+    "taxCompliance": "Tax Compliance",
+    "hrVisa": "HR & Visa Services",
+    "premises": "Premises & Property",
+    "industryLicensing": "Industry Licensing",
+    "financialOutsourcing": "Financial Outsourcing",
+    "intellectualProperty": "Intellectual Property",
+    "digitalInfrastructure": "Digital Infrastructure",
+    "policySubsidy": "Policy & Subsidy"
+  },
+  "features": {
+    "techStartup": "🚀 Tech Startup Success Case",
+    "freeConsultation": "💬 Get Free Consultation"
+  },
+  "actions": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "download": "Download",
+    "subscribe": "Subscribe",
+    "search": "Search"
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "blog": "Resources",
+    "industries": "Industry Solutions"
+  }
+}

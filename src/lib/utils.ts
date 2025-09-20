@@ -1,18 +1,10 @@
 /**
- * 通用工具函数
+ * 通用工具函数占位符
  * 
- * 最基础结构，等待详细设计
+ * TODO: 实现通用工具函数
  */
 
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-/**
- * 合并CSS类名
- * 
- * @param inputs - CSS类名数组
- * @returns 合并后的类名字符串
- */
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+// TODO: 实现通用工具函数
+export const utils = {
+  // TODO: 工具方法
+};

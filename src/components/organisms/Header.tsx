@@ -1,21 +1,14 @@
 /**
- * 头部导航组件
+ * Header 组件占位符
  * 
- * 最基础结构，等待详细设计
- * 
- * @example
- * ```tsx
- * <Header />
- * ```
+ * TODO: 实现头部组件
  */
 
-import React from 'react';
-import { Navigation } from './Navigation';
-
-export const Header: React.FC = () => {
+export default function Header() {
+  // TODO: 实现组件
   return (
-    <header className="bg-white border-b border-gray-200">
-      <Navigation />
-    </header>
+    <div>
+      {/* TODO: 组件内容 */}
+    </div>
   );
-};
+}

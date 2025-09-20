@@ -1,5 +1,5 @@
 /**
- * GoChinaAdvisors (仮) 首页
+ * Go China Advisors (仮) 首页
  * 
  * 使用新的组件架构构建，展示组件组合使用
  * 
@@ -14,12 +14,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Container } from '@/components/layout/Container';
-import { Grid } from '@/components/layout/Grid';
-import { Stack } from '@/components/layout/Stack';
-import { BlogCard } from '@/components/content/BlogCard';
-import { CaseStudyCard } from '@/components/content/CaseStudyCard';
-import { SolutionPackageCard } from '@/components/business/SolutionPackageCard';
+import { Container } from '@/components/molecules/Container';
+import { Grid } from '@/components/molecules/Grid';
+import { Stack } from '@/components/molecules/Stack';
+import { BlogCard } from '@/components/molecules/BlogCard';
+import { CaseStudyCard } from '@/components/molecules/CaseStudyCard';
+import { SolutionPackageCard } from '@/components/molecules/SolutionPackageCard';
 
 export default function Home() {
   // 示例数据

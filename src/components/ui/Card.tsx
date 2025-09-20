@@ -1,156 +1,107 @@
-import React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
 
 /**
- * 卡片组件的属性接口
- */
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * 卡片变体样式
-   * @default 'default'
-   */
-  variant?: 'default' | 'outlined' | 'elevated';
-  /**
-   * 是否可点击
-   * @default false
-   */
-  clickable?: boolean;
-}
-
-/**
- * 卡片容器组件
+ * 卡片容器组件，提供统一的卡片样式和布局
  * 
- * 提供统一的卡片样式，支持多种变体和点击状态。
- * 用于展示内容块，如文章摘要、服务介绍等。
+ * 用于包装内容，提供圆角、边框、阴影等视觉效果
+ * 支持自定义样式类名
  * 
  * @example
  * ```tsx
  * <Card>
  *   <CardHeader>
- *     <CardTitle>服务标题</CardTitle>
+ *     <CardTitle>标题</CardTitle>
  *   </CardHeader>
  *   <CardContent>
- *     <p>服务描述内容</p>
+ *     <p>卡片内容</p>
  *   </CardContent>
- * </Card>
- * 
- * <Card variant="outlined" clickable>
- *   可点击的卡片
  * </Card>
  * ```
  */
-export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'default', clickable = false, ...props }, ref) => {
-    const baseStyles = 'rounded-lg border bg-card text-card-foreground shadow-sm';
-    
-    const variants = {
-      default: 'border-border',
-      outlined: 'border-2 border-border',
-      elevated: 'border-border shadow-lg',
-    };
-
-    const clickableStyles = clickable
-      ? 'cursor-pointer transition-all hover:shadow-md hover:scale-[1.02] active:scale-[0.98]'
-      : '';
-
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          baseStyles,
-          variants[variant],
-          clickableStyles,
-          className
-        )}
-        {...props}
-      />
-    );
-  }
-);
-
-Card.displayName = 'Card';
-
-/**
- * 卡片头部组件
- */
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    />
-  )
-);
-
-CardHeader.displayName = 'CardHeader';
-
-/**
- * 卡片标题组件
- */
-interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
-
-export const CardTitle = React.forwardRef<HTMLParagraphElement, CardTitleProps>(
-  ({ className, ...props }, ref) => (
-    <h3
-      ref={ref}
-      className={cn(
-        'text-2xl font-semibold leading-none tracking-tight',
-        className
-      )}
-      {...props}
-    />
-  )
-);
-
-CardTitle.displayName = 'CardTitle';
-
-/**
- * 卡片描述组件
- */
-interface CardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
-
-export const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  CardDescriptionProps
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <p
+  <div
     ref={ref}
-    className={cn('text-sm text-muted-foreground', className)}
+    className={cn(
+      "rounded-xl border bg-card text-card-foreground shadow",
+      className
+    )}
     {...props}
   />
-));
-
-CardDescription.displayName = 'CardDescription';
-
-/**
- * 卡片内容组件
- */
-interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('p-6 pt-0', className)} {...props} />
-  )
-);
-
-CardContent.displayName = 'CardContent';
+))
+Card.displayName = "Card"
 
 /**
- * 卡片底部组件
+ * 卡片头部组件，用于放置标题和副标题
+ * 
+ * 提供固定的内边距和间距样式
+ * 
+ * @example
+ * ```tsx
+ * <CardHeader>
+ *   <CardTitle>卡片标题</CardTitle>
+ *   <CardDescription>卡片描述</CardDescription>
+ * </CardHeader>
+ * ```
  */
-interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+))
+CardHeader.displayName = "CardHeader"
 
-export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={cn('flex items-center p-6 pt-0', className)}
-      {...props}
-    />
-  )
-);
+const CardTitle = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
 
-CardFooter.displayName = 'CardFooter';
+const CardDescription = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }

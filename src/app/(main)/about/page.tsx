@@ -1,34 +1,30 @@
 /**
  * 关于我们页面
+ * 文件路径: src/app/(main)/about/page.tsx
+ * 核心目标: 建立公司可信度和专业形象
  * 
- * 最基础结构，等待详细设计
+ * 内容模块:
+ * - 公司介绍: 公司使命和愿景、核心价值观、发展历程
+ * - 团队介绍: 核心团队成员、专业背景和经验、成功案例
+ * - 资质认证: 相关资质和认证、合作伙伴、行业认可
+ * - 联系我们: 联系方式和地址、在线咨询入口
  * 
- * @example
- * ```tsx
- * <AboutPage />
- * ```
+ * 组件构成:
+ * - Card: 团队成员卡片
+ * - Badge: 资质标签
+ * - Button: 联系按钮
+ * - ContactForm: 联系表单
+ * - Container: 页面容器
+ * - Grid: 团队网格布局
+ * - Typography: 文本样式
  */
 
-import React from 'react';
-
 export default function AboutPage() {
+  // TODO: 实现关于我们页面
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            关于我们
-          </h1>
-          <p className="text-xl text-gray-600">
-            了解GoChinaAdvisors (仮)的专业团队和服务理念
-          </p>
-        </div>
-        
-        {/* 页面内容占位符 */}
-        <div className="mt-16 text-center">
-          <p className="text-gray-500">页面内容待开发...</p>
-        </div>
-      </div>
+    <div>
+      <h1>关于我们</h1>
+      <p>页面内容待实现...</p>
     </div>
   );
 }
