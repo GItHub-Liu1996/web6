@@ -1,200 +1,312 @@
+/**
+ * GoChinaAdvisors (仮) 首页
+ * 
+ * 严格按照设计蓝图实现：
+ * - Hero区域：价值主张 + 两个核心CTA按钮
+ * - 客户痛点区：核心痛点展示
+ * - 核心解决方案区：启动方案和运营支持
+ * - 信任背书区：成功案例展示
+ * - 资源中心预览区：最新博客文章
+ * - 最终CTA区：联系咨询引导
+ */
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
-import { SITE_CONFIG, SERVICE_TYPES } from '@/lib/constants';
+import { Card } from '@/components/ui/Card';
+import { CaseStudyCard } from '@/components/case-studies/CaseStudyCard';
+import { SITE_CONFIG } from '@/lib/constants';
 
-/**
- * 首页组件
- * 
- * 展示网站的核心价值主张、主要服务和关键信息。
- * 包含英雄区域、服务介绍、优势展示和行动号召。
- */
 export default function Home() {
-  const services = [
+  // 客户痛点数据
+  const painPoints = [
     {
-      title: '公司注册',
-      description: '专业协助外国投资者在中国设立各类企业，包括WFOE、合资企业等',
-      icon: '🏢',
-      features: ['WFOE设立', '合资企业', '代表处', '个体工商户'],
+      title: '复杂的注册流程',
+      description: '不了解中国公司注册的具体要求和流程',
+      solution: '查看我们的企业落地启动方案',
+      href: '/solutions/startup',
     },
     {
-      title: '银行开户',
-      description: '协助开设企业银行账户，提供开户指导和文件准备服务',
-      icon: '🏦',
-      features: ['企业账户', '外汇账户', '人民币账户', '网银服务'],
+      title: '税务合规难题',
+      description: '担心税务申报和合规问题',
+      solution: '了解我们的税务合规服务',
+      href: '/services/tax-compliance',
     },
     {
-      title: '税务登记',
-      description: '完成税务登记手续，提供税务咨询和合规指导',
-      icon: '📊',
-      features: ['税务登记', '发票申请', '税务申报', '合规咨询'],
+      title: '跨境资金流动',
+      description: '不知道如何处理跨境资金流动',
+      solution: '查看跨境资金流动解决方案',
+      href: '/services/cross-border-funds-flow',
     },
     {
-      title: '商标注册',
-      description: '保护您的品牌知识产权，提供商标注册和维权服务',
-      icon: '™️',
-      features: ['商标查询', '商标注册', '商标续展', '侵权维权'],
+      title: '人员签证问题',
+      description: '外籍员工签证和居留许可办理困难',
+      solution: '了解人员与签证服务',
+      href: '/services/hr-visa',
     },
   ];
 
-  const advantages = [
+  // 核心解决方案数据
+  const solutions = [
     {
-      title: '专业团队',
-      description: '拥有10年以上经验的专业团队，熟悉中国法律法规',
-      icon: '👥',
+      title: '企业落地启动方案',
+      description: '为外国企业在中国设立公司提供一站式专业服务，从工商注册到银行开户，确保您的业务在中国市场成功落地。',
+      href: '/solutions/startup',
+      services: ['主体资格', '银行账户开设', '跨境资金流动', '税务登记'],
+      cta: '咨询启动方案',
     },
     {
-      title: '快速办理',
-      description: '平均15-30个工作日完成注册，比传统方式快50%',
-      icon: '⚡',
+      title: '企业持续运营支持',
+      description: '为已在中国设立公司的外国企业提供持续的运营支持服务，包括财税托管、合规管理等全方位服务。',
+      href: '/solutions/operation',
+      services: ['财税托管', '税务合规', '人员管理', '行业准入'],
+      cta: '获取运营支持',
+    },
+  ];
+
+  // 成功案例数据
+  const caseStudies = [
+    {
+      id: 'german-tech',
+      title: '德国科技公司成功进入中国市场',
+      company: 'TechCorp Germany',
+      industry: '科技',
+      challenge: '需要在中国设立研发中心和生产基地',
+      solution: '提供完整的公司注册和运营支持',
+      results: ['3个月内完成注册', '获得生产许可证', '建立本地团队'],
+      href: '/case-studies/german-tech-success',
     },
     {
-      title: '全程服务',
-      description: '从注册到运营，提供一站式全程服务支持',
-      icon: '🎯',
+      id: 'us-manufacturing',
+      title: '美国制造企业建立中国生产基地',
+      company: 'Manufacturing USA',
+      industry: '制造业',
+      challenge: '需要在中国设立生产基地并处理复杂的供应链',
+      solution: '协助完成注册、获得生产许可和建立供应链',
+      results: ['6个月内投产', '获得ISO认证', '建立完整供应链'],
+      href: '/case-studies/us-manufacturing-china',
     },
     {
-      title: '多语言支持',
-      description: '支持中英文服务，沟通无障碍',
-      icon: '🌐',
+      id: 'uk-finance',
+      title: '英国金融服务公司获得中国牌照',
+      company: 'Finance UK',
+      industry: '金融服务',
+      challenge: '需要获得中国金融服务牌照并建立合规体系',
+      solution: '协助获得牌照并建立完整的合规管理体系',
+      results: ['获得金融服务牌照', '建立合规体系', '成功开展业务'],
+      href: '/case-studies/uk-finance-license',
+    },
+  ];
+
+  // 最新博客文章数据
+  const blogPosts = [
+    {
+      title: '2024年中国外商投资企业注册指南',
+      excerpt: '详细介绍2024年外国投资者在中国设立企业的最新政策和流程...',
+      href: '/blog/china-foreign-investment-guide-2024',
+      category: '政策解读',
+      readTime: '8分钟',
+    },
+    {
+      title: 'WFOE vs 合资企业：如何选择最适合的企业类型',
+      excerpt: '分析WFOE和合资企业的优缺点，帮助您做出最佳选择...',
+      href: '/blog/wofe-vs-joint-venture-comparison',
+      category: '企业类型',
+      readTime: '6分钟',
+    },
+    {
+      title: '中国银行开户全攻略：从准备到成功',
+      excerpt: '详细指导如何在中国开设企业银行账户，包括所需文件和流程...',
+      href: '/blog/china-bank-account-opening-guide',
+      category: '银行服务',
+      readTime: '10分钟',
+    },
+    {
+      title: '跨境资金流动合规指南',
+      excerpt: '了解中国跨境资金流动的最新政策和合规要求...',
+      href: '/blog/cross-border-funds-compliance',
+      category: '资金管理',
+      readTime: '7分钟',
     },
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* 英雄区域 */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-20 lg:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-              为中国投资提供
-              <span className="text-primary">专业服务</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
-              我们为外国投资者在中国注册公司提供一站式专业服务，
-              <br className="hidden md:block" />
-              让您的中国投资之路更加顺畅
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3">
-                免费咨询
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-                查看服务
-              </Button>
-            </div>
+    <div className="min-h-screen bg-white">
+      {/* Hero区域 */}
+      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            让您的业务在中国市场
+            <span className="text-blue-600">成功落地</span>
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            为外国用户在中国注册和运营公司提供一站式专业服务。我们的专业团队将为您提供个性化的解决方案，确保您的业务在中国市场成功落地。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="text-lg px-8 py-4">
+              <Link href="/solutions/startup">咨询启动方案</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-4">
+              <Link href="/solutions/operation">获取运营支持</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* 服务介绍 */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              我们的核心服务
+      {/* 客户痛点区 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              您是否正面临以下挑战？
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              从公司注册到日常运营，我们提供全方位的专业服务，
-              帮助您在中国市场取得成功
+            <p className="text-lg text-gray-600">
+              我们理解外国企业在中国市场面临的挑战，并提供专业的解决方案
             </p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="text-4xl mb-4">{service.icon}</div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                  <CardDescription className="text-sm">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>• {feature}</li>
-                    ))}
-                  </ul>
-                </CardContent>
+            {painPoints.map((point, index) => (
+              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">{point.title}</h3>
+                <p className="text-gray-600 mb-4">{point.description}</p>
+                <Link
+                  href={point.href}
+                  className="text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  {point.solution} →
+                </Link>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 我们的优势 */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              为什么选择我们
+      {/* 核心解决方案区 */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              我们的核心解决方案
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              我们拥有丰富的经验和专业的团队，
-              为您提供最优质的服务体验
+            <p className="text-lg text-gray-600">
+              针对不同阶段的企业需求，提供专业的解决方案
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {advantages.map((advantage, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl mb-4">{advantage.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {advantage.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {advantage.description}
-                </p>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {solutions.map((solution, index) => (
+              <Card key={index} className="p-8 hover:shadow-lg transition-shadow">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{solution.title}</h3>
+                <p className="text-gray-600 mb-6">{solution.description}</p>
+                <div className="mb-6">
+                  <h4 className="font-semibold text-gray-900 mb-3">包含服务：</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {solution.services.map((service, serviceIndex) => (
+                      <span
+                        key={serviceIndex}
+                        className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                      >
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <Button asChild className="w-full">
+                  <Link href={solution.href}>{solution.cta}</Link>
+                </Button>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 统计数据 */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">500+</div>
-              <div className="text-lg opacity-90">成功案例</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">10+</div>
-              <div className="text-lg opacity-90">年经验</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">98%</div>
-              <div className="text-lg opacity-90">客户满意度</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">24h</div>
-              <div className="text-lg opacity-90">响应时间</div>
-            </div>
+      {/* 信任背书区 */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              成功案例
+            </h2>
+            <p className="text-lg text-gray-600">
+              看看我们如何帮助其他企业在中国市场取得成功
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudies.map((caseStudy) => (
+              <CaseStudyCard
+                key={caseStudy.id}
+                {...caseStudy}
+                variant="preview"
+              />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button asChild variant="outline">
+              <Link href="/case-studies">查看所有成功案例</Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* 行动号召 */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              准备开始您的中国投资之旅？
+      {/* 资源中心预览区 */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              资源中心
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              我们的专业团队随时为您提供咨询和支持，
-              让您的中国投资之路更加顺畅
+            <p className="text-lg text-gray-600">
+              获取最新的政策解读、行业洞察和实用指南
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8 py-3">
-                立即咨询
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-                了解更多
-              </Button>
-            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {blogPosts.map((post, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
+                <div className="mb-4">
+                  <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full mb-2">
+                    {post.category}
+                  </span>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-sm text-gray-500">
+                    <span>{post.readTime}</span>
+                    <Link
+                      href={post.href}
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      阅读更多 →
+                    </Link>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button asChild variant="outline">
+              <Link href="/blog">浏览所有文章</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 最终CTA区 */}
+      <section className="py-16 bg-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            准备开始您的中国业务之旅？
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            我们的专业团队将为您提供个性化的解决方案，确保您的业务在中国市场成功落地。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-4">
+              <Link href="/contact">立即咨询</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-blue-600">
+              <Link href="/about">了解我们</Link>
+            </Button>
           </div>
         </div>
       </section>

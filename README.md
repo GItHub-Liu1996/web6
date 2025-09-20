@@ -1,54 +1,99 @@
-# 中国公司注册服务网站
+# GoChinaAdvisors (仮)
 
 [![GitHub](https://img.shields.io/badge/GitHub-web6-blue?style=flat-square&logo=github)](https://github.com/GItHub-Liu1996/web6)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
-为外国用户在中国注册公司提供专业、高效的一站式服务网站。
+为外国用户在中国注册和运营公司提供一站式专业服务的权威内容与业务平台。
 
 > **⚠️ 开发前必读**: 请务必先查阅 [开发总纲 - 核心开发细则](./docs/DEVELOPMENT_PRINCIPLES.md)，该文档包含了项目开发的最高准则和强制执行规则。
 
 ## 🚀 项目概述
 
-这是一个基于 Next.js 14 + TypeScript + Tailwind CSS 构建的现代化网站，专注于为中国公司注册服务提供专业的在线平台。网站以博客内容为核心，通过高质量的SEO内容获取有机流量，推动业务获客。
+GoChinaAdvisors (仮) 是一个基于 Next.js 15 + TypeScript + Tailwind CSS 构建的现代化权威内容与业务平台。我们专注于为外国用户在中国注册和运营公司提供一站式专业服务。
+
+### 🎯 核心设计哲学
+
+- **解决方案驱动 (Solution-Oriented)**: 网站结构围绕"解决客户问题"组织，引导用户而非让他们自己寻找
+- **移动端优先 (Mobile-First)**: 所有页面和组件首先在移动端达到完美体验，再增强至桌面端
+- **转化漏斗设计 (Conversion Funnel Design)**: 整个网站是精心设计的转化漏斗，将访问者引导至"联系咨询"环节
 
 ## ✨ 核心功能
 
-- **专业服务展示**：公司注册、银行开户、税务登记、商标注册等服务
-- **博客系统**：高质量内容营销，SEO优化
-- **响应式设计**：完美适配桌面端和移动端
-- **多语言支持**：中英文双语（规划中）
-- **SEO优化**：完整的元数据和结构化数据
-- **无障碍设计**：符合WCAG标准
+### 🎯 解决方案导向的服务体系
+- **企业落地启动方案**: 主体资格、银行账户开设、跨境资金流动等基础服务
+- **企业持续运营支持**: 财税托管、税务合规、人员签证等增值服务
+- **专业服务详情**: 10+ 专业服务领域，每个都有详细的解决方案页面
+
+### 📚 权威内容中心
+- **高质量博客系统**: 解决特定问题的深度内容，吸引精准流量
+- **成功案例研究**: 建立深度信任的案例展示
+- **资源中心**: 多语言内容营销，SEO优化
+
+### 🔄 内容转化飞轮
+- **有机内容链接**: 博客文章 → 服务详情页 → 案例研究 → 联系咨询
+- **智能引导**: 基于用户需求的内容推荐和路径引导
+- **转化优化**: 精心设计的转化漏斗，最大化咨询转化率
+
+### 🌐 多语言与移动优先
+- **双语支持**: 中文和英文完整支持
+- **移动端优先**: 所有功能在移动端完美体验
+- **响应式设计**: 桌面端增强体验
 
 ## 🛠️ 技术栈
 
-- **框架**：Next.js 14 (App Router)
-- **语言**：TypeScript
-- **样式**：Tailwind CSS
+- **框架**：Next.js 15 (App Router)
+- **语言**：TypeScript 5
+- **样式**：Tailwind CSS 4
 - **字体**：Geist Sans & Geist Mono
-- **图标**：Lucide React
+- **国际化**：next-intl
+- **内容管理**：MDX + gray-matter
 - **测试**：Jest + React Testing Library
 - **代码质量**：ESLint + Prettier
+- **营销集成**：Zoho CRM + Campaigns + PageSense
 
 ## 📁 项目结构
 
 ```
-web6/
+gochina-advisors/
 ├── src/
 │   ├── app/                    # Next.js App Router
-│   │   ├── globals.css         # 全局样式
-│   │   ├── layout.tsx          # 根布局
-│   │   └── page.tsx            # 首页
-│   ├── components/             # 可复用组件
-│   │   ├── ui/                 # 基础UI组件
-│   │   └── layout/             # 布局组件
-│   ├── lib/                    # 工具函数和配置
-│   └── types/                  # TypeScript类型定义
-├── public/                     # 静态资源
-├── docs/                       # 项目文档
-└── tests/                      # 测试文件
+│   │   ├── (main)/            # 主要路由组
+│   │   │   ├── solutions/     # 解决方案页面
+│   │   │   │   ├── startup/   # 企业落地启动方案
+│   │   │   │   └── operation/ # 企业持续运营支持
+│   │   │   ├── services/      # 服务详情页面
+│   │   │   │   ├── page.tsx   # 服务列表页
+│   │   │   │   └── [service]/ # 动态服务详情页
+│   │   │   ├── case-studies/  # 成功案例页面
+│   │   │   ├── blog/          # 博客/资源中心
+│   │   │   ├── about/         # 关于我们
+│   │   │   ├── contact/       # 联系我们
+│   │   │   └── pricing/       # 服务定价（规划中）
+│   │   ├── api/               # API路由
+│   │   ├── globals.css        # 全局样式
+│   │   ├── layout.tsx         # 根布局
+│   │   └── page.tsx           # 首页
+│   ├── components/            # 可复用组件
+│   │   ├── ui/                # 基础UI组件
+│   │   ├── layout/            # 布局组件
+│   │   ├── forms/             # 表单组件
+│   │   ├── solutions/         # 解决方案组件
+│   │   ├── case-studies/      # 案例研究组件
+│   │   └── blog/              # 博客组件
+│   ├── lib/                   # 工具函数和配置
+│   │   ├── utils.ts           # 通用工具函数
+│   │   ├── validations.ts     # 表单验证
+│   │   └── constants.ts       # 常量定义
+│   └── types/                 # TypeScript类型定义
+├── content/                   # 内容管理（与src分离）
+│   ├── blog/                 # 博客文章
+│   ├── case-studies/         # 成功案例
+│   └── translations/          # 多语言翻译文件
+├── public/                   # 静态资源
+├── docs/                     # 项目文档
+└── tests/                    # 测试文件
 ```
 
 ## 🚀 快速开始

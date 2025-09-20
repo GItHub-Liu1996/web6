@@ -1,8 +1,8 @@
 {
-  "name": "china-company-registration",
+  "name": "gochina-advisors",
   "version": "0.1.0",
   "private": true,
-  "description": "为外国用户在中国注册公司提供一站式服务的网站",
+  "description": "GoChinaAdvisors (仮) - 为外国用户在中国注册和运营公司提供一站式专业服务的权威内容与业务平台",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
