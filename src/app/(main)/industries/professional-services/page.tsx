@@ -1,26 +1,26 @@
 /**
- * 行业方案概览页面
+ * 专业服务业行业页面
  * 
- * 展示所有行业领域的解决方案概览
+ * 专门为咨询、法律、财务等专业服务行业企业提供专业解决方案
  * 
  * @example
  * ```tsx
- * <IndustriesPage />
+ * <ProfessionalServicesIndustryPage />
  * ```
  */
 
 import React from 'react';
 
-export default function IndustriesPage() {
+export default function ProfessionalServicesIndustryPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            行业解决方案
+            专业服务业行业解决方案
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            为不同行业领域的企业提供专业、定制化的中国落地和运营解决方案
+          <p className="text-xl text-gray-600">
+            为咨询、法律、财务等专业服务行业企业提供专业服务
           </p>
         </div>
         
