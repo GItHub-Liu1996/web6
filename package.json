@@ -22,8 +22,7 @@
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0",
-    "lucide-react": "^0.263.1"
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "typescript": "^5",
