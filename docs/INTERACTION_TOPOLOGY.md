@@ -1,8 +1,8 @@
-# 网站交互拓扑图
+# GoChinaAdvisors (仮) 交互拓扑图
 
 ## 📋 概述
 
-本文档详细描述了网站的交互拓扑结构，包括页面间的导航关系、组件间的数据流、用户交互路径等。
+本文档详细描述了GoChinaAdvisors (仮)网站的交互拓扑结构，包括页面间的导航关系、组件间的数据流、用户交互路径等。项目严格按照解决方案驱动、移动端优先、转化漏斗设计的核心哲学构建。
 
 ## 🗺️ 网站导航拓扑
 
@@ -10,17 +10,31 @@
 
 ```
 首页 (/)
-├── 服务页面 (/services)
-│   ├── 公司注册 (/services/company-registration)
-│   ├── 银行开户 (/services/bank-account)
-│   ├── 税务登记 (/services/tax-registration)
-│   └── 商标注册 (/services/trademark)
-├── 博客页面 (/blog)
-│   ├── 博客列表 (/blog)
-│   ├── 博客详情 (/blog/[slug])
+├── 解决方案页面 (/solutions)
+│   ├── 企业落地启动方案 (/solutions/startup)
+│   └── 企业持续运营支持 (/solutions/operation)
+├── 服务详情页面 (/services)
+│   ├── 主体资格 (/services/legal-entity)
+│   ├── 银行账户开设 (/services/bank-account-opening)
+│   ├── 跨境资金流动 (/services/cross-border-funds-flow)
+│   ├── 税务合规 (/services/tax-compliance)
+│   ├── 人员签证 (/services/hr-visa)
+│   ├── 经营场所 (/services/premises-property)
+│   ├── 行业准入 (/services/industry-licensing)
+│   ├── 财税托管 (/services/financial-outsourcing)
+│   ├── 知识产权 (/services/intellectual-property)
+│   ├── 数字基建 (/services/digital-infrastructure)
+│   └── 政策咨询 (/services/policy-subsidy)
+├── 案例研究页面 (/case-studies)
+│   ├── 案例列表页 (/case-studies)
+│   └── 案例详情页 (/case-studies/[slug])
+├── 资源中心 (/blog)
+│   ├── 博客列表页 (/blog)
+│   ├── 博客详情页 (/blog/[slug])
 │   └── 分类页面 (/blog/category/[category])
 ├── 关于我们 (/about)
-└── 联系我们 (/contact)
+├── 联系我们 (/contact)
+└── 服务定价 (/pricing) [规划中]
 ```
 
 ### 2. 页面间导航关系
@@ -28,46 +42,63 @@
 ```
 首页
 ├── Header导航
-│   ├── 服务 → /services
-│   ├── 博客 → /blog
+│   ├── 解决方案下拉菜单
+│   │   ├── 企业落地启动方案 → /solutions/startup
+│   │   ├── 企业持续运营支持 → /solutions/operation
+│   │   └── 全部服务概览 → /services
+│   ├── 成功案例 → /case-studies
+│   ├── 资源中心 → /blog
 │   ├── 关于我们 → /about
-│   ├── 案例 → /cases (规划中)
 │   └── 联系我们 → /contact
-├── 服务展示区域
-│   └── 服务卡片 → /services/[service]
-├── 博客预览区域
-│   └── 博客卡片 → /blog/[slug]
-└── 联系表单区域
-    └── 联系按钮 → /contact
+├── Hero区域CTA
+│   ├── 咨询启动方案 → /solutions/startup
+│   └── 获取运营支持 → /solutions/operation
+├── 客户痛点区域
+│   ├── 复杂注册流程 → /solutions/startup
+│   ├── 税务合规难题 → /services/tax-compliance
+│   ├── 跨境资金流动 → /services/cross-border-funds-flow
+│   └── 人员签证问题 → /services/hr-visa
+├── 核心解决方案区域
+│   ├── 企业落地启动方案 → /solutions/startup
+│   └── 企业持续运营支持 → /solutions/operation
+├── 信任背书区域
+│   └── 成功案例卡片 → /case-studies/[slug]
+├── 资源中心预览区域
+│   └── 博客文章卡片 → /blog/[slug]
+└── 最终CTA区域
+    └── 立即咨询 → /contact
 
-服务页面
+解决方案页面
 ├── Header导航 (同首页)
-├── 服务列表
-│   └── 服务卡片 → /services/[service]
+├── SolutionPackageCard组件
+│   ├── 服务清单链接 → /services/[service]
+│   ├── 相关案例链接 → /case-studies/[slug]
+│   └── 上下文联系表单 → /contact?subject=...
 └── Footer (同首页)
 
-博客页面
+服务详情页面
 ├── Header导航 (同首页)
-├── 博客列表
-│   └── 博客卡片 → /blog/[slug]
-├── 分类筛选
-│   └── 分类链接 → /blog/category/[category]
+├── 服务内容区域
+│   ├── 关联内容链接 → /blog/[slug]
+│   ├── 相关案例链接 → /case-studies/[slug]
+│   └── 相关服务链接 → /services/[service]
+├── FAQ区域
+└── 上下文联系表单 → /contact?subject=...
+
+案例研究页面
+├── Header导航 (同首页)
+├── CaseStudyCard组件
+│   └── 查看完整案例 → /case-studies/[slug]
+├── 相关案例推荐
+└── Footer (同首页)
+
+资源中心页面
+├── Header导航 (同首页)
+├── BlogCard组件
+│   ├── 文章详情 → /blog/[slug]
+│   ├── 分类筛选 → /blog/category/[category]
+│   └── 相关服务链接 → /services/[service]
 ├── 搜索功能
-│   └── 搜索结果 → /blog?search=keyword
-└── Footer (同首页)
-
-关于我们页面
-├── Header导航 (同首页)
-├── 公司介绍内容
-├── 团队介绍
-└── Footer (同首页)
-
-联系我们页面
-├── Header导航 (同首页)
-├── 联系表单
-│   ├── 表单提交 → API /api/contact
-│   └── 成功反馈 → Toast消息
-├── 联系信息
 └── Footer (同首页)
 ```
 
@@ -75,332 +106,520 @@
 
 ### 1. 布局组件交互
 
-```
-App Layout (layout.tsx)
-├── Header组件
-│   ├── Logo组件
-│   │   └── 点击 → 首页 (/)
-│   ├── Navigation组件
-│   │   ├── 服务链接 → /services
-│   │   ├── 博客链接 → /blog
-│   │   ├── 关于我们链接 → /about
-│   │   └── 联系我们链接 → /contact
-│   ├── 联系按钮
-│   │   └── 点击 → /contact
-│   └── 移动端菜单按钮
-│       └── 点击 → 显示/隐藏移动菜单
-├── Main Content
-│   └── 页面内容组件
-└── Footer组件
-    ├── 公司信息
-    ├── 链接组
-    │   ├── 服务链接 → /services
-    │   ├── 资源链接 → /blog, /faq
-    │   └── 公司链接 → /about, /contact
-    ├── 社交媒体链接
-    │   ├── LinkedIn → 外部链接
-    │   ├── Twitter → 外部链接
-    │   └── Facebook → 外部链接
-    └── 版权信息
+```mermaid
+graph TD
+    A[App Layout layout.tsx] --> B[Header组件]
+    A --> C[Main Content]
+    A --> D[Footer组件]
+    
+    B --> E[Navigation组件]
+    E --> F[Logo组件]
+    E --> G[解决方案下拉菜单]
+    E --> H[其他导航项]
+    E --> I[搜索图标]
+    E --> J[联系我们按钮]
+    E --> K[语言切换器]
+    E --> L[移动端菜单按钮]
+    
+    D --> M[公司信息]
+    D --> N[链接组]
+    D --> O[社交媒体链接]
+    D --> P[版权信息]
+    
+    C --> Q[页面内容组件]
+    Q --> R[业务组件]
+    Q --> S[UI组件]
 ```
 
 ### 2. UI组件交互
 
-```
-Button组件
-├── 点击事件
-│   └── onClick → 父组件回调
-├── 加载状态
-│   └── loading → 显示加载动画
-└── 变体样式
-    ├── default → 主要按钮
-    ├── outline → 次要按钮
-    ├── ghost → 透明按钮
-    └── destructive → 危险按钮
-
-Input组件
-├── 输入事件
-│   └── onChange → 父组件回调
-├── 验证状态
-│   ├── error → 显示错误信息
-│   └── success → 显示成功状态
-└── 标签和帮助文本
-    ├── label → 输入标签
-    └── helpText → 帮助信息
-
-Card组件
-├── 点击事件 (可选)
-│   └── onClick → 父组件回调
-├── 悬停效果
-│   └── hover → 阴影变化
-└── 子组件
-    ├── CardHeader → 卡片头部
-    ├── CardContent → 卡片内容
-    └── CardFooter → 卡片底部
+```mermaid
+graph TD
+    A[Button组件] --> B[点击事件]
+    A --> C[加载状态]
+    A --> D[变体样式]
+    
+    B --> E[onClick回调]
+    C --> F[loading动画]
+    D --> G[variant样式]
+    
+    H[Input组件] --> I[输入事件]
+    H --> J[验证状态]
+    H --> K[标签和帮助文本]
+    
+    I --> L[onChange回调]
+    J --> M[error状态]
+    J --> N[success状态]
+    K --> O[label显示]
+    K --> P[helpText显示]
+    
+    Q[Card组件] --> R[点击事件]
+    Q --> S[悬停效果]
+    Q --> T[子组件]
+    
+    R --> U[onClick回调]
+    S --> V[阴影变化]
+    T --> W[CardHeader]
+    T --> X[CardContent]
+    T --> Y[CardFooter]
 ```
 
-### 3. 业务组件交互 (规划中)
+### 3. 业务组件交互
 
-```
-BlogCard组件
-├── 点击事件
-│   └── 点击 → /blog/[slug]
-├── 标签点击
-│   └── 点击标签 → /blog/category/[category]
-├── 阅读更多按钮
-│   └── 点击 → /blog/[slug]
-└── 数据依赖
-    ├── BlogPost类型
-    ├── formatDate工具函数
-    └── slugify工具函数
-
-ServiceCard组件
-├── 点击事件
-│   └── 点击 → /services/[service]
-├── 了解更多按钮
-│   └── 点击 → /services/[service]
-└── 数据依赖
-    ├── Service类型
-    └── SITE_CONFIG常量
-
-ContactForm组件
-├── 表单提交
-│   └── onSubmit → API /api/contact
-├── 字段验证
-│   ├── 邮箱验证 → isValidEmail
-│   ├── 手机验证 → isValidPhone
-│   └── 必填验证 → VALIDATION_RULES
-├── 提交状态
-│   ├── loading → 显示加载状态
-│   ├── success → 显示成功消息
-│   └── error → 显示错误消息
-└── 数据依赖
-    ├── ContactFormData类型
-    ├── VALIDATION_RULES常量
-    └── COUNTRIES常量
+```mermaid
+graph TD
+    A[SolutionPackageCard组件] --> B[方案介绍]
+    A --> C[服务清单]
+    A --> D[工作流程]
+    A --> E[相关案例]
+    A --> F[上下文联系表单]
+    
+    B --> G[方案标题和描述]
+    C --> H[服务卡片]
+    H --> I[服务详情链接]
+    D --> J[流程步骤]
+    E --> K[CaseStudyCard组件]
+    F --> L[ContactForm组件]
+    
+    M[CaseStudyCard组件] --> N[案例信息]
+    M --> O[挑战和解决方案]
+    M --> P[成果展示]
+    M --> Q[查看详情按钮]
+    
+    N --> R[公司名称和行业]
+    O --> S[挑战描述]
+    O --> T[解决方案摘要]
+    P --> U[成果列表]
+    Q --> V[案例详情链接]
+    
+    W[ContactForm组件] --> X[表单字段]
+    W --> Y[上下文感知]
+    W --> Z[表单验证]
+    W --> AA[提交处理]
+    
+    X --> BB[基本信息字段]
+    X --> CC[服务需求字段]
+    X --> DD[详细需求字段]
+    Y --> EE[URL查询参数]
+    Y --> FF[默认主题填充]
+    Z --> GG[字段验证]
+    Z --> HH[错误显示]
+    AA --> II[API调用]
+    AA --> JJ[Zoho CRM集成]
 ```
 
 ## 📊 数据流拓扑
 
 ### 1. 页面数据流
 
-```
-用户访问页面
-├── Next.js路由解析
-│   └── 确定页面组件
-├── 页面组件加载
-│   ├── 获取静态数据
-│   │   ├── SITE_CONFIG常量
-│   │   ├── 页面内容
-│   │   └── 导航数据
-│   ├── 获取动态数据 (如适用)
-│   │   ├── API调用
-│   │   ├── Markdown文件解析
-│   │   └── 数据库查询
-│   └── 组件渲染
-│       ├── 布局组件
-│       ├── 业务组件
-│       └── UI组件
-└── 用户交互
-    ├── 点击事件
-    ├── 表单提交
-    └── 导航跳转
+```mermaid
+graph TD
+    A[用户访问页面] --> B[Next.js路由解析]
+    B --> C[页面组件加载]
+    C --> D[获取静态数据]
+    C --> E[获取动态数据]
+    C --> F[组件渲染]
+    
+    D --> G[SITE_CONFIG常量]
+    D --> H[页面内容]
+    D --> I[导航数据]
+    
+    E --> J[API调用]
+    E --> K[MDX文件解析]
+    E --> L[数据库查询]
+    
+    F --> M[布局组件]
+    F --> N[业务组件]
+    F --> O[UI组件]
+    
+    P[用户交互] --> Q[点击事件]
+    P --> R[表单提交]
+    P --> S[导航跳转]
+    
+    Q --> T[组件状态更新]
+    R --> U[API调用]
+    S --> V[路由跳转]
 ```
 
 ### 2. 组件数据流
 
-```
-父组件
-├── Props传递
-│   ├── 数据Props
-│   ├── 事件回调Props
-│   └── 配置Props
-├── 状态管理
-│   ├── 本地状态 (useState)
-│   ├── 上下文状态 (Context)
-│   └── 全局状态 (规划中)
-└── 子组件渲染
-    ├── 条件渲染
-    ├── 列表渲染
-    └── 事件处理
-
-子组件
-├── Props接收
-│   ├── 数据接收
-│   ├── 事件处理
-│   └── 配置应用
-├── 内部状态
-│   ├── 组件状态
-│   └── 用户交互状态
-├── 工具函数调用
-│   ├── 数据处理
-│   ├── 格式化
-│   └── 验证
-└── 回调执行
-    ├── 事件回调
-    ├── 状态更新
-    └── 父组件通知
+```mermaid
+graph TD
+    A[父组件] --> B[Props传递]
+    B --> C[数据Props]
+    B --> D[事件回调Props]
+    B --> E[配置Props]
+    
+    A --> F[状态管理]
+    F --> G[本地状态 useState]
+    F --> H[上下文状态 Context]
+    F --> I[全局状态 规划中]
+    
+    A --> J[子组件渲染]
+    J --> K[条件渲染]
+    J --> L[列表渲染]
+    J --> M[事件处理]
+    
+    N[子组件] --> O[Props接收]
+    O --> P[数据接收]
+    O --> Q[事件处理]
+    O --> R[配置应用]
+    
+    N --> S[内部状态]
+    S --> T[组件状态]
+    S --> U[用户交互状态]
+    
+    N --> V[工具函数调用]
+    V --> W[数据处理]
+    V --> X[格式化]
+    V --> Y[验证]
+    
+    N --> Z[回调执行]
+    Z --> AA[事件回调]
+    Z --> BB[状态更新]
+    Z --> CC[父组件通知]
 ```
 
 ## 🎯 用户交互路径
 
 ### 1. 新用户访问路径
 
-```
-用户访问首页
-├── 查看服务介绍
-│   └── 点击服务卡片 → 服务详情页
-├── 阅读博客内容
-│   └── 点击博客卡片 → 博客详情页
-├── 了解公司信息
-│   └── 点击关于我们 → 关于页面
-└── 联系咨询
-    └── 点击联系我们 → 联系页面
-        ├── 填写联系表单
-        ├── 提交表单
-        └── 收到确认消息
+```mermaid
+graph TD
+    A[用户访问首页] --> B[查看Hero区域]
+    B --> C[了解价值主张]
+    C --> D[查看客户痛点]
+    D --> E[了解核心解决方案]
+    E --> F[查看成功案例]
+    F --> G[浏览资源中心]
+    G --> H[联系咨询]
+    
+    E --> I[点击启动方案CTA]
+    I --> J[查看启动方案详情]
+    J --> K[了解服务清单]
+    K --> L[查看工作流程]
+    L --> M[查看相关案例]
+    M --> N[联系咨询启动方案]
+    
+    E --> O[点击运营支持CTA]
+    O --> P[查看运营支持详情]
+    P --> Q[了解增值服务]
+    Q --> R[查看运营流程]
+    R --> S[查看相关案例]
+    S --> T[联系咨询运营支持]
 ```
 
 ### 2. 现有用户访问路径
 
-```
-用户直接访问博客
-├── 浏览博客列表
-├── 使用分类筛选
-│   └── 点击分类 → 分类页面
-├── 使用搜索功能
-│   └── 输入关键词 → 搜索结果
-└── 阅读博客文章
-    ├── 分享文章
-    ├── 收藏文章 (规划中)
-    └── 评论文章 (规划中)
+```mermaid
+graph TD
+    A[用户直接访问博客] --> B[浏览博客列表]
+    B --> C[使用分类筛选]
+    C --> D[点击分类]
+    D --> E[查看分类页面]
+    
+    B --> F[使用搜索功能]
+    F --> G[输入关键词]
+    G --> H[查看搜索结果]
+    
+    B --> I[阅读博客文章]
+    I --> J[查看相关服务]
+    J --> K[点击服务详情]
+    K --> L[了解服务内容]
+    L --> M[联系咨询]
+    
+    I --> N[查看相关案例]
+    N --> O[点击案例详情]
+    O --> P[了解案例背景]
+    P --> Q[联系咨询]
+    
+    I --> R[查看相关文章]
+    R --> S[点击文章链接]
+    S --> T[继续阅读]
 ```
 
 ### 3. 服务咨询路径
 
-```
-用户访问服务页面
-├── 浏览服务列表
-├── 查看服务详情
-│   ├── 了解服务内容
-│   ├── 查看服务流程
-│   └── 了解服务价格
-├── 联系咨询
-│   └── 点击联系按钮 → 联系页面
-└── 提交咨询表单
-    ├── 填写需求信息
-    ├── 选择服务类型
-    └── 提交表单
+```mermaid
+graph TD
+    A[用户访问服务页面] --> B[浏览服务列表]
+    B --> C[查看服务详情]
+    C --> D[了解服务内容]
+    D --> E[查看服务流程]
+    E --> F[了解服务优势]
+    F --> G[查看相关案例]
+    G --> H[联系咨询]
+    
+    H --> I[填写联系表单]
+    I --> J[选择服务类型]
+    J --> K[填写需求信息]
+    K --> L[提交表单]
+    L --> M[Zoho CRM创建潜在客户]
+    M --> N[销售团队跟进]
+    
+    H --> O[查看FAQ]
+    O --> P[找到答案]
+    P --> Q[继续浏览]
+    Q --> R[联系咨询]
 ```
 
 ## 🔧 API交互拓扑
 
 ### 1. 现有API (规划中)
 
-```
-联系表单API
-├── 端点: POST /api/contact
-├── 请求数据: ContactFormData
-├── 验证: 服务端验证
-├── 处理: 发送邮件通知
-└── 响应: ApiResponse
-
-博客API
-├── 端点: GET /api/blog
-├── 查询参数: page, limit, category, search
-├── 处理: 读取Markdown文件
-└── 响应: PaginatedResponse<BlogPost>
-
-博客详情API
-├── 端点: GET /api/blog/[slug]
-├── 处理: 读取特定Markdown文件
-└── 响应: BlogPost
+```mermaid
+graph TD
+    A[联系表单API] --> B[端点: POST /api/contact]
+    B --> C[请求数据: ContactFormData]
+    C --> D[验证: 服务端验证]
+    D --> E[处理: 发送邮件通知]
+    E --> F[响应: ApiResponse]
+    
+    G[邮件订阅API] --> H[端点: POST /api/subscribe]
+    H --> I[请求数据: SubscribeData]
+    I --> J[处理: 添加到Zoho Campaigns]
+    J --> K[响应: SubscribeResponse]
+    
+    L[博客API] --> M[端点: GET /api/blog]
+    M --> N[查询参数: page, limit, category, search]
+    N --> O[处理: 读取MDX文件]
+    O --> P[响应: PaginatedResponse<BlogPost>]
+    
+    Q[案例研究API] --> R[端点: GET /api/case-studies]
+    R --> S[查询参数: page, limit, industry]
+    S --> T[处理: 读取案例MDX文件]
+    T --> U[响应: PaginatedResponse<CaseStudy>]
 ```
 
 ### 2. 外部服务交互 (规划中)
 
-```
-邮件服务
-├── 联系表单通知
-├── Newsletter订阅
-└── 营销邮件
-
-分析服务
-├── Google Analytics
-├── Vercel Analytics
-└── 用户行为追踪
-
-CDN服务
-├── 图片优化
-├── 静态资源缓存
-└── 全球加速
+```mermaid
+graph TD
+    A[邮件服务] --> B[联系表单通知]
+    A --> C[Newsletter订阅]
+    A --> D[营销邮件]
+    
+    E[Zoho CRM] --> F[潜在客户创建]
+    E --> G[客户信息更新]
+    E --> H[销售跟进记录]
+    
+    I[Zoho Campaigns] --> J[邮件列表管理]
+    I --> K[营销活动创建]
+    I --> L[邮件发送统计]
+    
+    M[Zoho PageSense] --> N[用户行为分析]
+    M --> O[热力图数据]
+    M --> P[转化漏斗分析]
+    
+    Q[CDN服务] --> R[图片优化]
+    Q --> S[静态资源缓存]
+    Q --> T[全球加速]
 ```
 
 ## 📱 响应式交互拓扑
 
 ### 1. 桌面端交互
 
-```
-桌面端布局
-├── 完整导航菜单
-├── 侧边栏 (规划中)
-├── 多列布局
-└── 悬停效果
-    ├── 按钮悬停
-    ├── 卡片悬停
-    └── 链接悬停
+```mermaid
+graph TD
+    A[桌面端布局] --> B[完整导航菜单]
+    A --> C[侧边栏 规划中]
+    A --> D[多列布局]
+    A --> E[悬停效果]
+    
+    E --> F[按钮悬停]
+    E --> G[卡片悬停]
+    E --> H[链接悬停]
+    
+    B --> I[解决方案下拉菜单]
+    I --> J[鼠标悬停展开]
+    J --> K[子菜单项点击]
+    
+    D --> L[网格布局]
+    L --> M[卡片网格]
+    L --> N[内容网格]
 ```
 
 ### 2. 移动端交互
 
-```
-移动端布局
-├── 汉堡菜单
-├── 单列布局
-├── 触摸优化
-└── 滑动交互
-    ├── 轮播图
-    ├── 侧滑菜单
-    └── 下拉刷新
+```mermaid
+graph TD
+    A[移动端布局] --> B[汉堡菜单]
+    A --> C[单列布局]
+    A --> D[触摸优化]
+    A --> E[滑动交互]
+    
+    B --> F[点击展开菜单]
+    F --> G[菜单项点击]
+    G --> H[页面跳转]
+    
+    E --> I[轮播图滑动]
+    E --> J[侧滑菜单]
+    E --> K[下拉刷新]
+    
+    D --> L[触摸反馈]
+    D --> M[手势识别]
+    D --> N[触摸区域优化]
+    
+    C --> O[垂直堆叠]
+    O --> P[卡片堆叠]
+    O --> Q[内容堆叠]
 ```
 
 ## 🚀 性能优化交互
 
 ### 1. 加载优化
 
-```
-页面加载
-├── 静态生成 (SSG)
-├── 增量静态再生 (ISR)
-├── 图片优化
-│   ├── Next.js Image组件
-│   ├── WebP格式
-│   └── 响应式图片
-└── 代码分割
-    ├── 路由级分割
-    ├── 组件级分割
-    └── 动态导入
+```mermaid
+graph TD
+    A[页面加载] --> B[静态生成 SSG]
+    A --> C[增量静态再生 ISR]
+    A --> D[图片优化]
+    A --> E[代码分割]
+    
+    D --> F[Next.js Image组件]
+    D --> G[WebP格式]
+    D --> H[响应式图片]
+    
+    E --> I[路由级分割]
+    E --> J[组件级分割]
+    E --> K[动态导入]
+    
+    B --> L[预构建页面]
+    C --> M[按需重新生成]
 ```
 
 ### 2. 交互优化
 
+```mermaid
+graph TD
+    A[用户交互] --> B[预加载]
+    A --> C[缓存策略]
+    A --> D[懒加载]
+    
+    B --> E[链接预加载]
+    B --> F[图片预加载]
+    
+    C --> G[浏览器缓存]
+    C --> H[CDN缓存]
+    C --> I[API缓存]
+    
+    D --> J[图片懒加载]
+    D --> K[组件懒加载]
+    D --> L[内容懒加载]
+    
+    M[性能监控] --> N[Core Web Vitals]
+    M --> O[用户行为分析]
+    M --> P[错误监控]
 ```
-用户交互
-├── 预加载
-│   ├── 链接预加载
-│   └── 图片预加载
-├── 缓存策略
-│   ├── 浏览器缓存
-│   ├── CDN缓存
-│   └── API缓存
-└── 懒加载
-    ├── 图片懒加载
-    ├── 组件懒加载
-    └── 内容懒加载
+
+## 🔄 内容转化飞轮交互
+
+### 1. 转化路径设计
+
+```mermaid
+graph TD
+    A[高质量博客文章] --> B[解决特定问题]
+    A --> C[吸引精准流量]
+    
+    B --> D[内部链接]
+    C --> D
+    D --> E[服务详情页]
+    
+    E --> F[提供专业解决方案]
+    F --> G[展示成功案例]
+    G --> H[案例研究页]
+    
+    H --> I[建立深度信任]
+    I --> J[交叉链接]
+    J --> A
+    
+    E --> K[引导咨询]
+    K --> L[联系表单]
+    L --> M[Zoho CRM]
+    M --> N[销售跟进]
+    
+    H --> O[相关服务推荐]
+    O --> P[服务详情页]
+    P --> K
 ```
+
+### 2. 有机链接策略
+
+```mermaid
+graph TD
+    A[博客文章] --> B[相关服务链接]
+    A --> C[相关案例链接]
+    A --> D[相关文章链接]
+    
+    B --> E[服务详情页]
+    C --> F[案例研究页]
+    D --> G[其他博客文章]
+    
+    E --> H[相关案例展示]
+    E --> I[相关文章推荐]
+    E --> J[联系表单CTA]
+    
+    F --> K[相关服务推荐]
+    F --> L[相关文章推荐]
+    F --> M[联系表单CTA]
+    
+    G --> N[相关服务链接]
+    G --> O[相关案例链接]
+    G --> P[相关文章链接]
+```
+
+## 📋 开发检查清单
+
+### 1. 新增组件时
+- [ ] 创建组件文件
+- [ ] 添加JSDoc注释
+- [ ] 定义TypeScript接口
+- [ ] 编写单元测试
+- [ ] 更新Storybook (如适用)
+- [ ] 记录依赖关系
+- [ ] 确保移动端优先设计
+- [ ] 实施内容转化飞轮链接
+
+### 2. 新增页面时
+- [ ] 创建页面文件
+- [ ] 添加SEO元数据
+- [ ] 配置路由
+- [ ] 添加布局组件
+- [ ] 记录页面依赖
+- [ ] 更新导航菜单
+- [ ] 实施内容转化飞轮链接
+- [ ] 确保移动端优先设计
+
+### 3. 新增依赖时
+- [ ] 评估依赖必要性
+- [ ] 检查版本兼容性
+- [ ] 更新package.json
+- [ ] 记录使用位置
+- [ ] 更新文档
+- [ ] 运行安全审计
+
+## 🔍 故障排除指南
+
+### 1. 常见问题
+- **组件不渲染**: 检查Props类型和默认值
+- **样式不生效**: 检查Tailwind类名和cn函数
+- **类型错误**: 检查TypeScript接口定义
+- **测试失败**: 检查测试用例和组件实现
+- **移动端显示异常**: 检查响应式设计和移动端优先原则
+- **转化路径断裂**: 检查内容转化飞轮链接
+
+### 2. 调试工具
+- **React DevTools**: 组件状态调试
+- **Next.js DevTools**: 性能分析
+- **TypeScript**: 类型检查
+- **ESLint**: 代码质量检查
+- **Chrome DevTools**: 移动端调试
+- **Zoho PageSense**: 用户行为分析
 
 ---
 
-**文档版本**: v1.0.0  
+**文档版本**: v2.0.0  
 **最后更新**: 2024年1月  
-**维护者**: 开发团队
+**维护者**: 开发团队  
+**项目**: GoChinaAdvisors (仮)

@@ -1,8 +1,8 @@
-# 组件依赖关系详细记录
+# GoChinaAdvisors (仮) 组件依赖关系详细记录
 
 ## 📋 概述
 
-本文档详细记录了每个组件、页面和功能的依赖关系，包括使用的"轮子"（第三方库）、内部依赖、工具函数和常量配置。
+本文档详细记录了GoChinaAdvisors (仮)项目中每个组件、页面和功能的依赖关系，包括使用的"轮子"（第三方库）、内部依赖、工具函数和常量配置。项目严格按照解决方案驱动、移动端优先、转化漏斗设计的核心哲学构建。
 
 ## 🏗️ 当前已实现组件
 
@@ -64,6 +64,23 @@
 #### Header.tsx
 **依赖关系**:
 - **直接依赖**: 
+  - `Navigation` - 来自 `@/components/layout/Navigation`
+  - `cn` - 来自 `@/lib/utils`
+- **使用工具函数**: 
+  - `cn()` - 类名合并
+- **使用常量**: 
+  - `SITE_CONFIG` - 来自 `@/lib/constants`
+- **测试文件**: 规划中
+- **Storybook**: 规划中
+
+**功能**:
+- 使用Navigation组件
+- 简化的头部结构
+- 响应式设计
+
+#### Navigation.tsx
+**依赖关系**:
+- **直接依赖**: 
   - `Link` - 来自 `next/link`
   - `Button` - 来自 `@/components/ui/Button`
   - `cn` - 来自 `@/lib/utils`
@@ -75,10 +92,11 @@
 - **Storybook**: 规划中
 
 **功能**:
-- 响应式导航菜单
-- Logo和品牌展示
-- 联系按钮
-- 移动端菜单按钮
+- 桌面端下拉菜单
+- 移动端汉堡菜单
+- 解决方案导航
+- 语言切换器
+- 搜索功能
 
 #### Footer.tsx
 **依赖关系**:
@@ -98,7 +116,80 @@
 - 社交媒体链接
 - 版权信息
 
-### 3. 页面组件 (src/app/)
+### 3. 业务组件 (src/components/)
+
+#### SolutionPackageCard.tsx
+**依赖关系**:
+- **直接依赖**: 
+  - `Card` - 来自 `@/components/ui/Card`
+  - `Button` - 来自 `@/components/ui/Button`
+  - `Link` - 来自 `next/link`
+  - `cn` - 来自 `@/lib/utils`
+- **使用工具函数**: 
+  - `cn()` - 类名合并
+- **使用类型**: 
+  - `Service` - 服务类型
+  - `WorkflowStep` - 工作流程步骤类型
+  - `CaseStudy` - 案例研究类型
+- **测试文件**: 规划中
+- **Storybook**: 规划中
+
+**功能**:
+- 方案介绍和描述
+- 服务清单展示
+- 工作流程图
+- 相关成功案例
+- 上下文联系表单
+
+#### CaseStudyCard.tsx
+**依赖关系**:
+- **直接依赖**: 
+  - `Card` - 来自 `@/components/ui/Card`
+  - `Button` - 来自 `@/components/ui/Button`
+  - `Link` - 来自 `next/link`
+  - `cn` - 来自 `@/lib/utils`
+- **使用工具函数**: 
+  - `cn()` - 类名合并
+- **使用类型**: 
+  - `CaseStudy` - 案例研究类型
+- **测试文件**: 规划中
+- **Storybook**: 规划中
+
+**功能**:
+- 案例标题和公司信息
+- 行业和挑战描述
+- 解决方案摘要
+- 结果和成果展示
+- 查看详情链接
+- 支持 'full' 和 'preview' 两种显示模式
+
+#### ContactForm.tsx
+**依赖关系**:
+- **直接依赖**: 
+  - `Button` - 来自 `@/components/ui/Button`
+  - `Input` - 来自 `@/components/ui/Input`
+  - `Card` - 来自 `@/components/ui/Card`
+  - `cn` - 来自 `@/lib/utils`
+- **使用工具函数**: 
+  - `cn()` - 类名合并
+- **使用类型**: 
+  - `ContactFormData` - 联系表单数据类型
+- **使用常量**: 
+  - `SERVICE_TYPES` - 服务类型常量
+  - `BUDGET_RANGES` - 预算范围常量
+  - `TIMELINE_OPTIONS` - 时间线选项常量
+  - `COUNTRIES` - 国家列表常量
+- **测试文件**: 规划中
+- **Storybook**: 规划中
+
+**功能**:
+- 上下文感知的表单预填充
+- 支持URL查询参数自动填充咨询主题
+- 完整的表单验证
+- 与Zoho CRM集成的数据收集
+- 支持完整表单和简化版本
+
+### 4. 页面组件 (src/app/)
 
 #### layout.tsx (根布局)
 **依赖关系**:
@@ -120,15 +211,46 @@
   - `Link` - 来自 `next/link`
   - `Button` - 来自 `@/components/ui/Button`
   - `Card` - 来自 `@/components/ui/Card`
+  - `CaseStudyCard` - 来自 `@/components/case-studies/CaseStudyCard`
 - **使用常量**: 
   - `SITE_CONFIG` - 来自 `@/lib/constants`
-  - `SERVICE_TYPES` - 来自 `@/lib/constants`
 - **功能**:
-  - 英雄区域
-  - 服务展示
-  - 优势展示
-  - 统计数据
-  - 行动号召
+  - Hero区域：价值主张 + 两个核心CTA按钮
+  - 客户痛点区：核心痛点展示
+  - 核心解决方案区：启动方案和运营支持
+  - 信任背书区：成功案例展示
+  - 资源中心预览区：最新博客文章
+  - 最终CTA区：联系咨询引导
+
+#### /solutions/startup/page.tsx (企业落地启动方案)
+**依赖关系**:
+- **直接依赖**: 
+  - `SolutionPackageCard` - 来自 `@/components/solutions/SolutionPackageCard`
+- **使用类型**: 
+  - `Service` - 服务类型
+  - `WorkflowStep` - 工作流程步骤类型
+  - `CaseStudy` - 案例研究类型
+- **功能**:
+  - 方案介绍和描述
+  - 6个核心服务展示
+  - 6步工作流程
+  - 3个相关成功案例
+  - 上下文联系表单
+
+#### /solutions/operation/page.tsx (企业持续运营支持)
+**依赖关系**:
+- **直接依赖**: 
+  - `SolutionPackageCard` - 来自 `@/components/solutions/SolutionPackageCard`
+- **使用类型**: 
+  - `Service` - 服务类型
+  - `WorkflowStep` - 工作流程步骤类型
+  - `CaseStudy` - 案例研究类型
+- **功能**:
+  - 方案介绍和描述
+  - 8个增值服务展示
+  - 6步运营优化流程
+  - 3个运营优化案例
+  - 上下文联系表单
 
 ## 🔧 工具函数依赖 (src/lib/)
 
