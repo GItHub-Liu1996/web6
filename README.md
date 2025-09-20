@@ -1,5 +1,10 @@
 # 中国公司注册服务网站
 
+[![GitHub](https://img.shields.io/badge/GitHub-web6-blue?style=flat-square&logo=github)](https://github.com/GItHub-Liu1996/web6)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+
 为外国用户在中国注册公司提供专业、高效的一站式服务网站。
 
 > **⚠️ 开发前必读**: 请务必先查阅 [开发总纲 - 核心开发细则](./docs/DEVELOPMENT_PRINCIPLES.md)，该文档包含了项目开发的最高准则和强制执行规则。
@@ -188,6 +193,21 @@ npm run start
 - 邮箱：info@china-company-registration.com
 - 电话：+86 400-123-4567
 - 网站：https://china-company-registration.com
+
+## 🔗 相关链接
+
+- **GitHub仓库**: [https://github.com/GItHub-Liu1996/web6](https://github.com/GItHub-Liu1996/web6)
+- **在线预览**: [即将部署]
+- **项目文档**: [开发总纲](./docs/DEVELOPMENT_PRINCIPLES.md)
+
+## 📊 项目状态
+
+- ✅ 基础架构完成
+- ✅ 开发总纲建立
+- ✅ Git工作流配置
+- ✅ 组件库基础
+- 🚧 博客系统开发中
+- 🚧 服务页面开发中
 
 ---
 
