@@ -1,9 +1,9 @@
 # Go China Advisors
 
 [![GitHub](https://img.shields.io/badge/GitHub-web6-blue?style=flat-square&logo=github)](https://github.com/GItHub-Liu1996/web6)
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4.5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.3-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
 为外国用户在中国注册和运营公司提供一站式专业服务的权威内容与业务平台。
 
@@ -49,7 +49,7 @@ Go China Advisors 是一个基于 Next.js 14.2.3 + React 18.3.1 + TypeScript 5.4
 - **语言**：TypeScript 5.4.5
 - **样式**：Tailwind CSS 3.4.3
 - **React**：18.3.1
-- **Storybook**：9.1.7
+- **Storybook**：8.6.14
 - **字体**：Geist Sans & Geist Mono
 - **国际化**：next-intl
 - **内容管理**：MDX + gray-matter
