@@ -22,9 +22,9 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-9 w-9",
+        sm: "h-9 px-3 text-xs",
+        lg: "h-11 px-8",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
@@ -42,6 +42,16 @@ export interface ButtonProps
    * @default false
    */
   asChild?: boolean
+  /**
+   * 是否显示加载状态
+   * @default false
+   */
+  loading?: boolean
+  /**
+   * 加载状态时显示的文本
+   * @default "Loading..."
+   */
+  loadingText?: string
 }
 
 /**
@@ -60,14 +70,19 @@ export interface ButtonProps
  * ```
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, loading = false, loadingText = "Loading...", children, disabled, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    const isDisabled = disabled || loading
+    
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        disabled={isDisabled}
         {...props}
-      />
+      >
+        {loading ? loadingText : children}
+      </Comp>
     )
   }
 )

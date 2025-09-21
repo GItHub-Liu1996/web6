@@ -1,17 +1,21 @@
+"use client";
+
 import Link from 'next/link';
 import Navigation from './Navigation';
+import { Button } from '@/components/ui/Button';
 
 /**
- * Header 主导航栏组件
+ * Header Component
  * 
- * 基于Vistra网站设计风格和蓝图文档v4.2超级菜单结构
+ * Professional header component for Go China Advisors website
+ * Based on Vistra.com design patterns and atomic design principles
  * 
- * ## 设计风格参考 (Vistra.com)
- * - 简洁现代的企业级设计
- * - 深蓝色主色调 (#1e3a8a 类似)
- * - 白色背景，清晰的层次结构
- * - 专业的字体排版
- * - 悬停效果：深蓝色文字 → 主色调高亮
+ * ## Design Features
+ * - Clean, modern enterprise design
+ * - Professional color scheme with primary blue tones
+ * - White background with clear hierarchy
+ * - Professional typography
+ * - Hover effects: dark blue text → primary color highlight
  * 
  * ## 导航结构设计
  * 
@@ -116,7 +120,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo 和导航区域 */}
+          {/* Logo and Navigation Area */}
           <div className="flex items-center space-x-8">
             {/* Logo */}
             <Link href="/" className="flex items-center">
@@ -125,28 +129,28 @@ export default function Header() {
               </div>
             </Link>
             
-            {/* 桌面端导航 */}
+            {/* Desktop Navigation */}
             <div className="hidden lg:flex">
               <Navigation />
             </div>
           </div>
           
-          {/* 右侧功能区域 */}
+          {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            {/* 搜索按钮 */}
-            <button className="p-2 text-gray-600 hover:text-primary transition-colors" aria-label="搜索">
+            {/* Search Button */}
+            <button className="p-2 text-gray-600 hover:text-primary transition-colors" aria-label="Search">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.3-4.3"></path>
               </svg>
             </button>
-            
-            {/* CTA按钮 */}
-            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-8 rounded-md px-3 text-xs">
-              免费咨询
-            </button>
-            
-            {/* 语言切换器 */}
+
+            {/* CTA Button */}
+            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              Free Consultation
+            </Button>
+
+            {/* Language Switcher */}
             <button className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-primary transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -155,9 +159,9 @@ export default function Header() {
               </svg>
               <span>EN/中文</span>
             </button>
-            
-            {/* 移动端菜单按钮 */}
-            <button className="lg:hidden p-2 text-gray-600 hover:text-primary transition-colors" aria-label="打开菜单">
+
+            {/* Mobile Menu Button */}
+            <button className="lg:hidden p-2 text-gray-600 hover:text-primary transition-colors" aria-label="Open menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
                 <line x1="4" x2="20" y1="12" y2="12"></line>
                 <line x1="4" x2="20" y1="6" y2="6"></line>
