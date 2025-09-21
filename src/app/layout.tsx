@@ -2,6 +2,7 @@
  * 根布局组件
  * 
  * 提供网站的基础HTML结构，包括字体、元数据和全局布局
+ * 集成 Zoho SalesIQ 实时聊天功能
  * 
  * @example
  * ```tsx
@@ -48,6 +49,21 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        
+        {/* TODO: 集成 Zoho SalesIQ 实时聊天小部件 */}
+        {/* 
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // TODO: 添加 Zoho SalesIQ 脚本
+              // 实现非侵入式悬浮聊天图标
+              // 支持多语言聊天界面
+              // 自动访客识别和追踪
+              // 聊天记录自动保存到 CRM
+            `,
+          }}
+        />
+        */}
       </body>
     </html>
   );
