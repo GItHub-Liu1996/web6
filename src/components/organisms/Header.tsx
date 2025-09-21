@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import Navigation from './Navigation';
+
 /**
  * Header 主导航栏组件
  * 
@@ -110,29 +113,60 @@ export default function Header() {
   // 12. 案例菜单展示四大核心能力：服务效率、专业能力、金融合规、全生命周期
   
   return (
-    <div>
-      {/* TODO: Header实现 */}
-      {/* 
-      结构预览：
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <Container className="flex items-center justify-between h-20">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo 和导航区域 */}
           <div className="flex items-center space-x-8">
-            <Logo />
-            <Navigation>
-              <MegaMenu /> {/* 解决方案超级菜单 */}
-              <CaseStudiesMenu /> {/* 成功案例下拉菜单 */}
-              <BlogMenu /> {/* 资源中心下拉菜单 */}
-              <AboutMenu /> {/* 关于我们下拉菜单 */}
-            </Navigation>
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <div className="h-10 w-auto">
+                <span className="text-xl font-bold text-gray-900">Go China Advisors</span>
+              </div>
+            </Link>
+            
+            {/* 桌面端导航 */}
+            <div className="hidden lg:flex">
+              <Navigation />
+            </div>
           </div>
+          
+          {/* 右侧功能区域 */}
           <div className="flex items-center space-x-4">
-            <SearchIcon />
-            <CTAButton />
-            <LanguageSwitcher />
+            {/* 搜索按钮 */}
+            <button className="p-2 text-gray-600 hover:text-primary transition-colors" aria-label="搜索">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+            </button>
+            
+            {/* CTA按钮 */}
+            <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-8 rounded-md px-3 text-xs">
+              免费咨询
+            </button>
+            
+            {/* 语言切换器 */}
+            <button className="flex items-center space-x-1 px-3 py-2 text-sm text-gray-600 hover:text-primary transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" x2="22" y1="12" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>EN/中文</span>
+            </button>
+            
+            {/* 移动端菜单按钮 */}
+            <button className="lg:hidden p-2 text-gray-600 hover:text-primary transition-colors" aria-label="打开菜单">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
           </div>
-        </Container>
-      </header>
-      */}
-    </div>
+        </div>
+      </div>
+    </header>
   );
 }

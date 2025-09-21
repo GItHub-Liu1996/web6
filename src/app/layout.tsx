@@ -13,18 +13,13 @@
  */
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/organisms/Header";
-import { Footer } from "@/components/organisms/Footer";
+import Header from "@/components/organisms/Header";
+import Footer from "@/components/organisms/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -96,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
         <main className="flex-1">
