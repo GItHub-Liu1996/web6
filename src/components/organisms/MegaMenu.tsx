@@ -17,11 +17,13 @@
  * ┌─────────────────────────────────────────────────────────────┐
  * │ 第一栏 (bg-gray-50)    │ 第二栏 (bg-white)    │ 第三栏 (bg-white) │
  * │                         │                     │                   │
- * │ 企业落地启动方案         │ 科技与软件 (TMT)    │ 🚀 科技创业成功案例 │
- * │ 企业持续运营支持         │ 电子商务与零售      │ 💬 获取免费咨询     │
- * │ 全部服务概览            │ 专业服务业         │                   │
- * │                         │ 高端制造业         │                   │
- * │                         │ 医疗器械           │                   │
+ * │ 企业落地启动方案         │ 企业持续运营支持     │ 行业解决方案       │
+ * │ ├─ 主体资格            │ ├─ 财税托管         │ ├─ 科技与软件 (TMT) │
+ * │ ├─ 银行账户开设        │ ├─ 行业准入         │ ├─ 电子商务与零售   │
+ * │ ├─ 人员与签证          │ ├─ 知识产权         │ ├─ 专业服务业       │
+ * │ ├─ 经营场所            │ ├─ 企业重组与退出   │ ├─ 高端制造业       │
+ * │ └─ 更多服务            │ └─ 更多服务         │ ├─ 医疗器械         │
+ * │                         │                     │ └─ 更多行业         │
  * └─────────────────────────────────────────────────────────────┘
  * ```
  * 
@@ -30,11 +32,18 @@
  * ┌─────────────────────────────────────────┐
  * │ 第一栏 (bg-gray-50)    │ 第二栏 (bg-white) │
  * │                         │                 │
- * │ 企业落地启动方案         │ 科技与软件 (TMT)  │
- * │ 企业持续运营支持         │ 电子商务与零售    │
- * │ 全部服务概览            │ 专业服务业       │
- * │                         │ 高端制造业       │
- * │                         │ 医疗器械         │
+ * │ 企业落地启动方案         │ 企业持续运营支持  │
+ * │ ├─ 主体资格            │ ├─ 财税托管      │
+ * │ ├─ 银行账户开设        │ ├─ 行业准入      │
+ * │ ├─ 人员与签证          │ ├─ 知识产权      │
+ * │ ├─ 经营场所            │ ├─ 企业重组与退出 │
+ * │ └─ 更多服务            │ └─ 更多服务      │
+ * │ 行业解决方案            │                 │
+ * │ ├─ 科技与软件 (TMT)    │                 │
+ * │ ├─ 电子商务与零售      │                 │
+ * │ ├─ 专业服务业          │                 │
+ * │ ├─ 高端制造业          │                 │
+ * │ └─ 医疗器械            │                 │
  * └─────────────────────────────────────────┘
  * ```
  * 
@@ -42,15 +51,19 @@
  * ```
  * ┌─────────────────────┐
  * │ 企业落地启动方案     │
+ * │ ├─ 主体资格         │
+ * │ ├─ 银行账户开设     │
+ * │ └─ 更多服务         │
+ * │                     │
  * │ 企业持续运营支持     │
- * │ 全部服务概览        │
- * │ 科技与软件 (TMT)    │
- * │ 电子商务与零售      │
- * │ 专业服务业          │
- * │ 高端制造业          │
- * │ 医疗器械            │
- * │ 🚀 科技创业成功案例  │
- * │ 💬 获取免费咨询      │
+ * │ ├─ 财税托管         │
+ * │ ├─ 行业准入         │
+ * │ └─ 更多服务         │
+ * │                     │
+ * │ 行业解决方案         │
+ * │ ├─ 科技与软件 (TMT) │
+ * │ ├─ 电子商务与零售   │
+ * │ └─ 更多行业         │
  * └─────────────────────┘
  * ```
  * 
@@ -71,24 +84,30 @@
  * 
  * ## 内容结构
  * 
- * ### 第一栏 - 解决方案概览
- * - 标题: "解决方案概览"
- * - 企业落地启动方案 → /solutions/startup
- * - 企业持续运营支持 → /solutions/operation
- * - 全部服务概览 → /services
+ * ### 第一栏 - 企业落地启动方案
+ * - 标题: "企业落地启动方案"
+ * - 主体资格 → /services/legal-entity
+ * - 银行账户开设 → /services/bank-account-opening
+ * - 人员与签证 → /services/hr-visa
+ * - 经营场所 → /services/premises-property
+ * - 更多服务 → /services
  * 
- * ### 第二栏 - 行业领域
- * - 标题: "按行业分类"
+ * ### 第二栏 - 企业持续运营支持
+ * - 标题: "企业持续运营支持"
+ * - 财税托管 → /services/financial-outsourcing
+ * - 行业准入 → /services/industry-licensing
+ * - 知识产权 → /services/intellectual-property
+ * - 企业重组与退出 → /services/corporate-restructuring-and-exit
+ * - 更多服务 → /services
+ * 
+ * ### 第三栏 - 行业解决方案
+ * - 标题: "行业解决方案"
  * - 科技与软件 (TMT) → /industries/technology
  * - 电子商务与零售 → /industries/e-commerce
  * - 专业服务业 → /industries/professional-services
  * - 高端制造业 → /industries/advanced-manufacturing
  * - 医疗器械 → /industries/medical-devices
- * 
- * ### 第三栏 - 特色内容
- * - 标题: "推荐内容"
- * - 🚀 科技创业成功案例 → /case-studies/tech-startup-success
- * - 💬 获取免费咨询 → /contact
+ * - 更多行业 → /industries
  * 
  * ## 技术实现要点
  * - 使用CSS Grid布局实现多栏结构
@@ -121,28 +140,34 @@ export default function MegaMenu() {
         <Container className="py-8">
           <div className="grid grid-cols-3 gap-12">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="font-semibold text-lg mb-4">解决方案概览</h3>
+              <h3 className="font-semibold text-lg mb-4">企业落地启动方案</h3>
               <ul className="space-y-3">
-                <li><Link href="/solutions/startup">企业落地启动方案</Link></li>
-                <li><Link href="/solutions/operation">企业持续运营支持</Link></li>
-                <li><Link href="/services">全部服务概览</Link></li>
+                <li><Link href="/services/legal-entity">主体资格</Link></li>
+                <li><Link href="/services/bank-account-opening">银行账户开设</Link></li>
+                <li><Link href="/services/hr-visa">人员与签证</Link></li>
+                <li><Link href="/services/premises-property">经营场所</Link></li>
+                <li><Link href="/services">更多服务</Link></li>
               </ul>
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-lg mb-4">按行业分类</h3>
+              <h3 className="font-semibold text-lg mb-4">企业持续运营支持</h3>
+              <ul className="space-y-3">
+                <li><Link href="/services/financial-outsourcing">财税托管</Link></li>
+                <li><Link href="/services/industry-licensing">行业准入</Link></li>
+                <li><Link href="/services/intellectual-property">知识产权</Link></li>
+                <li><Link href="/services/corporate-restructuring-and-exit">企业重组与退出</Link></li>
+                <li><Link href="/services">更多服务</Link></li>
+              </ul>
+            </div>
+            <div className="p-6">
+              <h3 className="font-semibold text-lg mb-4">行业解决方案</h3>
               <ul className="space-y-3">
                 <li><Link href="/industries/technology">科技与软件 (TMT)</Link></li>
                 <li><Link href="/industries/e-commerce">电子商务与零售</Link></li>
                 <li><Link href="/industries/professional-services">专业服务业</Link></li>
                 <li><Link href="/industries/advanced-manufacturing">高端制造业</Link></li>
                 <li><Link href="/industries/medical-devices">医疗器械</Link></li>
-              </ul>
-            </div>
-            <div className="p-6">
-              <h3 className="font-semibold text-lg mb-4">推荐内容</h3>
-              <ul className="space-y-3">
-                <li><Link href="/case-studies/tech-startup-success">🚀 科技创业成功案例</Link></li>
-                <li><Link href="/contact">💬 获取免费咨询</Link></li>
+                <li><Link href="/industries">更多行业</Link></li>
               </ul>
             </div>
           </div>

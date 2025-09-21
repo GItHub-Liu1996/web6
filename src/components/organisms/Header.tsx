@@ -14,27 +14,58 @@
  * 
  * ### 桌面端布局 (1200px+)
  * ```
- * [Logo: Go China Advisors] | [解决方案 ▼] | [成功案例] | [资源中心 ▼] | [关于我们] | [🔍] | [免费咨询] | [EN/中文]
+ * [Logo: Go China Advisors] | [解决方案 ▼] | [成功案例 ▼] | [资源中心 ▼] | [关于我们 ▼] | [🔍] | [免费咨询] | [EN/中文]
  * ```
  * 
- * ### 超级菜单设计 (解决方案下拉)
+ * ### 导航菜单设计
+ * 
+ * **1. 解决方案超级菜单 (MegaMenu)**:
  * 采用3栏布局，参考Vistra的多栏超级菜单：
  * 
- * **第一栏 (浅灰背景 bg-secondary-50)**:
+ * **第一栏 (浅灰背景 bg-gray-50)**:
  * - 企业落地启动方案
- * - 企业持续运营支持  
- * - 全部服务概览
+ * - 银行账户开设
+ * - 人员与签证
+ * - 经营场所
+ * - 更多服务
  * 
  * **第二栏 (白色背景)**:
+ * - 企业持续运营支持
+ * - 财税托管
+ * - 行业准入
+ * - 知识产权
+ * - 企业重组与退出
+ * - 更多服务
+ * 
+ * **第三栏 (白色背景)**:
+ * - 行业解决方案
  * - 科技与软件 (TMT)
  * - 电子商务与零售
  * - 专业服务业
  * - 高端制造业
  * - 医疗器械
+ * - 更多行业
  * 
- * **第三栏 (白色背景)**:
- * - 🚀 科技创业成功案例
- * - 💬 获取免费咨询
+ * **2. 成功案例下拉菜单**:
+ * - 案例列表页 → /case-studies
+ * - 快速注册服务案例 → /case-studies/quick-registration-service
+ * - 行业准入许可案例 → /case-studies/industry-licensing-permit
+ * - 跨境资金合规案例 → /case-studies/cross-border-funds-compliance
+ * - 企业重组退出案例 → /case-studies/corporate-restructuring-exit
+ * - 更多案例 → /case-studies
+ * 
+ * **3. 资源中心下拉菜单**:
+ * - 博客列表页 → /blog
+ * - 政策解读 → /blog/category/policy
+ * - 案例分析 → /blog/category/case-study
+ * - 行业洞察 → /blog/category/industry-insight
+ * - 更多文章 → /blog
+ * 
+ * **4. 关于我们下拉菜单**:
+ * - 公司介绍 → /about
+ * - 团队介绍 → /about#team
+ * - 发展历程 → /about#history
+ * - 联系我们 → /contact
  * 
  * ### 移动端布局 (< 768px)
  * ```
@@ -75,6 +106,8 @@ export default function Header() {
   // 8. 添加键盘导航支持 (Tab键)
   // 9. 使用useEffect监听窗口大小变化
   // 10. 集成Zoho SalesIQ聊天图标 (右下角)
+  // 11. 成功案例菜单专注于服务成果展示，避免与企业成功混淆
+  // 12. 案例菜单展示四大核心能力：服务效率、专业能力、金融合规、全生命周期
   
   return (
     <div>
@@ -85,7 +118,12 @@ export default function Header() {
         <Container className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-8">
             <Logo />
-            <Navigation />
+            <Navigation>
+              <MegaMenu /> {/* 解决方案超级菜单 */}
+              <CaseStudiesMenu /> {/* 成功案例下拉菜单 */}
+              <BlogMenu /> {/* 资源中心下拉菜单 */}
+              <AboutMenu /> {/* 关于我们下拉菜单 */}
+            </Navigation>
           </div>
           <div className="flex items-center space-x-4">
             <SearchIcon />
@@ -93,7 +131,6 @@ export default function Header() {
             <LanguageSwitcher />
           </div>
         </Container>
-        <MegaMenu />
       </header>
       */}
     </div>
