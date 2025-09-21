@@ -17,7 +17,6 @@
  */
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface CalloutProps {
   type: 'info' | 'warning' | 'tip' | 'note';
@@ -33,35 +32,12 @@ export const Callout: React.FC<CalloutProps> = ({
   className,
 }) => {
   // TODO: 实现 Callout 组件
-  const baseClasses = "p-4 rounded-lg border mb-4";
-  
-  const typeClasses = {
-    info: "bg-blue-50 border-blue-200 text-blue-900",
-    warning: "bg-yellow-50 border-yellow-200 text-yellow-900",
-    tip: "bg-green-50 border-green-200 text-green-900",
-    note: "bg-gray-50 border-gray-200 text-gray-900",
-  };
-  
-  const iconMap = {
-    info: "💡",
-    warning: "⚠️",
-    tip: "💡",
-    note: "📝",
-  };
-
   return (
-    <div className={cn(baseClasses, typeClasses[type], className)}>
-      <div className="flex items-start">
-        <span className="mr-3 text-xl">{iconMap[type]}</span>
-        <div className="flex-1">
-          {title && (
-            <h4 className="font-semibold mb-2 text-lg">{title}</h4>
-          )}
-          <div>
-            {children}
-          </div>
-        </div>
-      </div>
+    <div className={`callout-placeholder callout-${type} ${className || ''}`}>
+      {/* TODO: 实现突出显示组件 */}
+      <div>Callout: {type}</div>
+      {title && <div>Title: {title}</div>}
+      <div>{children}</div>
     </div>
   );
 };

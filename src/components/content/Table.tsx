@@ -29,7 +29,6 @@
  */
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface TableProps {
   children: React.ReactNode;
@@ -47,22 +46,14 @@ export const Table: React.FC<TableProps> = ({
   className,
 }) => {
   // TODO: 实现 Table 组件
-  const baseClasses = "w-full overflow-x-auto";
-  
-  const tableClasses = cn(
-    "min-w-full",
-    {
-      "table-striped": striped,
-      "table-bordered": bordered,
-      "table-hover": hover,
-    }
-  );
-
   return (
-    <div className={cn(baseClasses, className)}>
-      <table className={tableClasses}>
-        {children}
-      </table>
+    <div className={`table-placeholder ${className || ''}`}>
+      {/* TODO: 实现表格组件 */}
+      <div>Table Options:</div>
+      <div>Striped: {striped ? 'yes' : 'no'}</div>
+      <div>Bordered: {bordered ? 'yes' : 'no'}</div>
+      <div>Hover: {hover ? 'yes' : 'no'}</div>
+      <div>Content: {children}</div>
     </div>
   );
 };

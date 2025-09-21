@@ -23,7 +23,6 @@
  */
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface VideoProps {
   src: string;
@@ -46,24 +45,14 @@ export const Video: React.FC<VideoProps> = ({
 }) => {
   // TODO: 实现 Video 组件
   return (
-    <figure className={cn("video-container my-6", className)}>
-      <div className="relative overflow-hidden rounded-lg">
-        <video
-          src={src}
-          poster={poster}
-          autoPlay={autoplay}
-          controls={controls}
-          loop={loop}
-          className="w-full h-auto"
-        >
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-      {caption && (
-        <figcaption className="text-sm text-gray-600 mt-2 text-center italic">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
+    <div className={`video-placeholder ${className || ''}`}>
+      {/* TODO: 实现视频组件 */}
+      <div>Video: {src}</div>
+      {poster && <div>Poster: {poster}</div>}
+      {caption && <div>Caption: {caption}</div>}
+      <div>Autoplay: {autoplay ? 'yes' : 'no'}</div>
+      <div>Controls: {controls ? 'yes' : 'no'}</div>
+      <div>Loop: {loop ? 'yes' : 'no'}</div>
+    </div>
   );
 };

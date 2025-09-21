@@ -17,7 +17,6 @@
  */
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface AlertProps {
   type: 'info' | 'warning' | 'error' | 'success';
@@ -33,35 +32,12 @@ export const Alert: React.FC<AlertProps> = ({
   className,
 }) => {
   // TODO: 实现 Alert 组件
-  const baseClasses = "p-4 rounded-lg border-l-4 mb-4";
-  
-  const typeClasses = {
-    info: "bg-blue-50 border-blue-400 text-blue-800",
-    warning: "bg-yellow-50 border-yellow-400 text-yellow-800",
-    error: "bg-red-50 border-red-400 text-red-800",
-    success: "bg-green-50 border-green-400 text-green-800",
-  };
-  
-  const iconMap = {
-    info: "ℹ️",
-    warning: "⚠️",
-    error: "❌",
-    success: "✅",
-  };
-
   return (
-    <div className={cn(baseClasses, typeClasses[type], className)}>
-      <div className="flex items-start">
-        <span className="mr-2 text-lg">{iconMap[type]}</span>
-        <div className="flex-1">
-          {title && (
-            <h4 className="font-semibold mb-1">{title}</h4>
-          )}
-          <div className="text-sm">
-            {children}
-          </div>
-        </div>
-      </div>
+    <div className={`alert-placeholder alert-${type} ${className || ''}`}>
+      {/* TODO: 实现提示框组件 */}
+      <div>Alert: {type}</div>
+      {title && <div>Title: {title}</div>}
+      <div>{children}</div>
     </div>
   );
 };

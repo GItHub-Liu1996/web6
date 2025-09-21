@@ -24,8 +24,6 @@
  */
 
 import React from 'react';
-import NextImage from 'next/image';
-import { cn } from '@/lib/utils';
 
 interface ImageProps {
   src: string;
@@ -48,22 +46,13 @@ export const Image: React.FC<ImageProps> = ({
 }) => {
   // TODO: 实现 Image 组件
   return (
-    <figure className={cn("image-container my-6", className)}>
-      <div className="relative overflow-hidden rounded-lg">
-        <NextImage
-          src={src}
-          alt={alt}
-          width={parseInt(width)}
-          height={parseInt(height)}
-          loading={lazy ? "lazy" : "eager"}
-          className="w-full h-auto"
-        />
-      </div>
-      {caption && (
-        <figcaption className="text-sm text-gray-600 mt-2 text-center italic">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
+    <div className={`image-placeholder ${className || ''}`}>
+      {/* TODO: 实现图片组件 */}
+      <div>Image: {src}</div>
+      <div>Alt: {alt}</div>
+      {caption && <div>Caption: {caption}</div>}
+      <div>Size: {width}x{height}</div>
+      <div>Lazy: {lazy ? 'yes' : 'no'}</div>
+    </div>
   );
 };

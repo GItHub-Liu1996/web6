@@ -22,7 +22,6 @@
  */
 
 import React from 'react';
-import { cn } from '@/lib/utils';
 
 interface QuoteProps {
   children: React.ReactNode;
@@ -40,30 +39,13 @@ export const Quote: React.FC<QuoteProps> = ({
   className,
 }) => {
   // TODO: 实现 Quote 组件
-  const baseClasses = "border-l-4 pl-4 py-2 my-4";
-  
-  const typeClasses = {
-    default: "border-gray-300 bg-gray-50 text-gray-800",
-    highlight: "border-blue-500 bg-blue-50 text-blue-900",
-    testimonial: "border-green-500 bg-green-50 text-green-900",
-  };
-
   return (
-    <blockquote className={cn(baseClasses, typeClasses[type], className)}>
-      <div className="text-lg italic mb-2">
-        "{children}"
-      </div>
-      {(author || source) && (
-        <footer className="text-sm text-gray-600">
-          {author && <cite className="font-semibold">— {author}</cite>}
-          {source && (
-            <span className="ml-2">
-              {author ? ', ' : '— '}
-              <cite>{source}</cite>
-            </span>
-          )}
-        </footer>
-      )}
-    </blockquote>
+    <div className={`quote-placeholder quote-${type} ${className || ''}`}>
+      {/* TODO: 实现引用组件 */}
+      <div>Quote Type: {type}</div>
+      <div>Content: "{children}"</div>
+      {author && <div>Author: {author}</div>}
+      {source && <div>Source: {source}</div>}
+    </div>
   );
 };
