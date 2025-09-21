@@ -55,7 +55,7 @@ Go China Advisors 是一个基于 Next.js 14.2.3 + React 18.3.1 + TypeScript 5.4
 - **内容管理**：MDX + gray-matter
 - **测试**：Jest + React Testing Library
 - **代码质量**：ESLint + Prettier
-- **营销集成**：Zoho CRM + Campaigns + PageSense
+- **营销集成**：Zoho CRM + Campaigns + SalesIQ + PageSense
 
 ## 📁 项目结构
 
