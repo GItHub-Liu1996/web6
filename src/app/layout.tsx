@@ -29,9 +29,63 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Go China Advisors (仮) - 中国公司注册专业服务",
+  title: "Go China Advisors - 中国公司注册专业服务",
   description: "为外国用户在中国注册和运营公司提供一站式专业服务",
   keywords: "中国公司注册,外国投资,企业服务,商务咨询",
+  authors: [{ name: "Go China Advisors Team" }],
+  creator: "Go China Advisors",
+  publisher: "Go China Advisors",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://china-company-registration.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'zh-CN': '/zh',
+      'en-US': '/en',
+      // TODO: 添加其他支持的语言版本
+    },
+  },
+  openGraph: {
+    title: "Go China Advisors - 中国公司注册专业服务",
+    description: "为外国用户在中国注册和运营公司提供一站式专业服务",
+    url: 'https://china-company-registration.com',
+    siteName: 'Go China Advisors',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Go China Advisors - 中国公司注册专业服务',
+      },
+    ],
+    locale: 'zh_CN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Go China Advisors - 中国公司注册专业服务",
+    description: "为外国用户在中国注册和运营公司提供一站式专业服务",
+    images: ['/twitter-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // TODO: 添加Google Search Console验证码
+    google: 'your-google-verification-code',
+  },
 };
 
 export default function RootLayout({
