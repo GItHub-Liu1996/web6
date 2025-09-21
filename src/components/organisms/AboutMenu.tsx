@@ -1,3 +1,8 @@
+"use client";
+
+import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+
 /**
  * AboutMenu 关于我们下拉菜单组件
  * 
@@ -66,34 +71,109 @@
  * - 响应式设计使用Tailwind的断点系统
  */
 
-export default function AboutMenu() {
-  // TODO: 实现AboutMenu组件
-  // 设计要点：
-  // 1. 使用绝对定位，相对于Header组件
-  // 2. 使用固定宽度 (w-48)
-  // 3. 使用白色背景和边框
-  // 4. 每个链接使用Link组件，支持客户端路由
-  // 5. 添加悬停效果和过渡动画
-  // 6. 使用useEffect监听鼠标进入/离开事件
-  // 7. 添加键盘导航支持 (Tab, Enter, Escape)
-  // 8. 使用Framer Motion实现平滑的显示/隐藏动画
-  
+interface AboutMenuProps {
+  isVisible: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}
+
+export default function AboutMenu({ isVisible, onMouseEnter, onMouseLeave }: AboutMenuProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // 处理鼠标进入
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setIsOpen(true);
+    onMouseEnter();
+  };
+
+  // 处理鼠标离开
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+      onMouseLeave();
+    }, 300); // 300ms延迟隐藏
+  };
+
+  // 键盘导航支持
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsOpen(false);
+      onMouseLeave();
+    }
+  };
+
+  // 清理定时器
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  // 根据isVisible和isOpen状态决定是否显示
+  const shouldShow = isVisible && isOpen;
+
   return (
-    <div>
-      {/* TODO: AboutMenu实现 */}
-      {/* 
-      结构预览：
-      <div className="absolute top-full left-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-40">
-        <div className="p-4">
-          <ul className="space-y-2">
-            <li><Link href="/about">公司介绍</Link></li>
-            <li><Link href="/about#team">团队介绍</Link></li>
-            <li><Link href="/about#history">发展历程</Link></li>
-            <li><Link href="/contact">联系我们</Link></li>
-          </ul>
-        </div>
+    <div
+      ref={menuRef}
+      className={`absolute top-full left-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-40 transition-all duration-200 ease-out ${
+        shouldShow 
+          ? 'opacity-100 translate-y-0' 
+          : 'opacity-0 -translate-y-2 pointer-events-none'
+      }`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onKeyDown={handleKeyDown}
+      role="menu"
+      aria-label="关于我们菜单"
+    >
+      <div className="p-4">
+        <ul className="space-y-2">
+          <li>
+            <Link 
+              href="/about" 
+              className="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+              role="menuitem"
+            >
+              公司介绍
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/about#team" 
+              className="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+              role="menuitem"
+            >
+              团队介绍
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/about#history" 
+              className="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+              role="menuitem"
+            >
+              发展历程
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/contact" 
+              className="block px-3 py-2 text-sm text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md transition-colors duration-200"
+              role="menuitem"
+            >
+              联系我们
+            </Link>
+          </li>
+        </ul>
       </div>
-      */}
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 /**
  * BlogMenu 资源中心下拉菜单组件
  * 
