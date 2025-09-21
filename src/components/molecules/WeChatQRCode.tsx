@@ -1,7 +1,7 @@
 /**
  * WeChatQRCode 分子组件
  *
- * 用于优雅地展示微信公众号二维码，支持不同尺寸和配置选项。
+ * 用于在页脚和联系页面，优雅地展示和说明微信二维码。
  * 作为本地化沟通渠道的重要组成部分。
  *
  * @param {string} qrCodeImage - 微信公众号二维码图片URL
@@ -23,9 +23,6 @@
  */
 
 import React from 'react';
-import { Card } from '@/components/ui/Card';
-import { Typography } from '@/components/ui/Typography';
-import { cn } from '@/lib/utils';
 
 interface WeChatQRCodeProps {
   qrCodeImage: string;
@@ -39,34 +36,21 @@ interface WeChatQRCodeProps {
 export const WeChatQRCode: React.FC<WeChatQRCodeProps> = ({
   qrCodeImage,
   title = "关注微信公众号",
-  description = "获取最新政策资讯和咨询服务",
+  description,
   size = 'md',
   showDescription = true,
   className,
 }) => {
   // TODO: 实现 WeChatQRCode 组件
   return (
-    <Card className={cn("wechat-qr-code-placeholder", className)}>
-      <div className="qr-code-container">
-        {/* TODO: 实现二维码图片显示 */}
-        <img 
-          src={qrCodeImage} 
-          alt="微信公众号二维码" 
-          className={`qr-image qr-image-${size}`}
-        />
-        
-        {/* TODO: 实现标题显示 */}
-        <Typography variant="body-regular" className="qr-title">
-          {title}
-        </Typography>
-        
-        {/* TODO: 实现描述文字显示 */}
-        {showDescription && (
-          <Typography variant="body-small" className="qr-description">
-            {description}
-          </Typography>
-        )}
-      </div>
-    </Card>
+    <div className={`wechat-qr-code-placeholder ${className || ''}`}>
+      {/* TODO: 实现微信二维码组件 */}
+      <div>WeChat QR Code</div>
+      <div>Image: {qrCodeImage}</div>
+      <div>Title: {title}</div>
+      {description && <div>Description: {description}</div>}
+      <div>Size: {size}</div>
+      <div>Show Description: {showDescription ? 'yes' : 'no'}</div>
+    </div>
   );
 };
