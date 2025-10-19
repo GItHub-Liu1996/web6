@@ -1,4 +1,12 @@
-import Link from 'next/link';
+import React from 'react';
+// import Link from 'next/link'; // 在Storybook中使用普通链接
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/Button';
+import { ChevronDown } from 'lucide-react';
 
 /**
  * BlogMenu 资源中心下拉菜单组件
@@ -71,35 +79,47 @@ import Link from 'next/link';
  * - 响应式设计使用Tailwind的断点系统
  */
 
-export default function BlogMenu() {
-  // TODO: 实现BlogMenu组件
-  // 设计要点：
-  // 1. 使用绝对定位，相对于Header组件
-  // 2. 使用固定宽度 (w-48)
-  // 3. 使用白色背景和边框
-  // 4. 每个链接使用Link组件，支持客户端路由
-  // 5. 添加悬停效果和过渡动画
-  // 6. 使用useEffect监听鼠标进入/离开事件
-  // 7. 添加键盘导航支持 (Tab, Enter, Escape)
-  // 8. 使用Framer Motion实现平滑的显示/隐藏动画
-  
+export function BlogMenu() {
   return (
-    <div>
-      {/* TODO: BlogMenu实现 */}
-      {/* 
-      结构预览：
-      <div className="absolute top-full left-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-40">
-        <div className="p-4">
-          <ul className="space-y-2">
-            <li><Link href="/blog">博客列表页</Link></li>
-            <li><Link href="/blog/category/policy">政策解读</Link></li>
-            <li><Link href="/blog/category/case-study">案例分析</Link></li>
-            <li><Link href="/blog/category/industry-insight">行业洞察</Link></li>
-            <li><Link href="/blog">更多文章</Link></li>
-          </ul>
-        </div>
-      </div>
-      */}
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="text-base font-semibold">
+          Resources
+          <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180" />
+        </Button>
+      </DropdownMenuTrigger>
+      
+      <DropdownMenuContent className="w-48" align="start">
+        <ul className="grid gap-1 p-3 list-none">
+          <ListItem href="/blog" title="Blog Posts" />
+          <ListItem href="/blog/category/policy" title="Policy Analysis" />
+          <ListItem href="/blog/category/case-study" title="Case Studies" />
+          <ListItem href="/blog/category/industry-insight" title="Industry Insights" />
+          <ListItem href="/blog" title="More Articles" />
+        </ul>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
+
+// ListItem 子组件，用于统一菜单项样式
+const ListItem = React.forwardRef<
+  React.ElementRef<'a'>,
+  { href: string; title: string }
+>(({ href, title, ...props }, ref) => {
+  return (
+    <li>
+      <a
+        ref={ref}
+        href={href}
+        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+        {...props}
+      >
+        <div className="text-sm font-medium leading-none">{title}</div>
+      </a>
+    </li>
+  );
+});
+ListItem.displayName = 'ListItem';
+
+export default BlogMenu;
